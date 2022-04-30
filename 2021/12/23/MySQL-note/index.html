@@ -1,37 +1,1293 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+  
 
 
-{% block content %}
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="MySQL," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="MySQL语法语句及语法的约定 | 符号用来指出几个选择中的一个，因此，NULL|NOT NULL表示或者给出NULL或者给出NOT NULL 包含在方括号中的关键字或子句（如[like this]）是可选的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL语法和规范">
+<meta property="og:url" content="http://example.com/2021/12/23/MySQL-note/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="MySQL语法语句及语法的约定 | 符号用来指出几个选择中的一个，因此，NULL|NOT NULL表示或者给出NULL或者给出NOT NULL 包含在方括号中的关键字或子句（如[like this]）是可选的">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-12-22T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-12-26T06:57:14.664Z">
+<meta property="article:author" content="zhaoxfan">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2021/12/23/MySQL-note/"/>
+
+
+
+
+
+  <title>MySQL语法和规范 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/23/MySQL-note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MySQL语法和规范</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-12-23T00:00:00+08:00">
+                2021-12-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="MySQL语法"><a href="#MySQL语法" class="headerlink" title="MySQL语法"></a>MySQL语法</h2><h3 id="语句及语法的约定"><a href="#语句及语法的约定" class="headerlink" title="语句及语法的约定"></a>语句及语法的约定</h3><ul>
+<li>| 符号用来指出几个选择中的一个，因此，NULL|NOT NULL表示或者给出NULL或者给出NOT NULL</li>
+<li>包含在方括号中的关键字或子句（如[like this]）是可选的</li>
+</ul>
+<span id="more"></span>
+
+<h3 id="SQL执行顺序"><a href="#SQL执行顺序" class="headerlink" title="SQL执行顺序"></a>SQL执行顺序</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">8</span>)<span class="keyword">SELECT</span> (<span class="number">9</span>)<span class="keyword">DISTINCT</span>  (<span class="number">11</span>)<span class="operator">&lt;</span>Top Num<span class="operator">&gt;</span> <span class="operator">&lt;</span><span class="keyword">select</span> list<span class="operator">&gt;</span></span><br><span class="line">(<span class="number">1</span>)<span class="keyword">FROM</span> [left_table]</span><br><span class="line">(<span class="number">3</span>)<span class="operator">&lt;</span>join_type<span class="operator">&gt;</span> <span class="keyword">JOIN</span> <span class="operator">&lt;</span>right_table<span class="operator">&gt;</span></span><br><span class="line">(<span class="number">2</span>)        <span class="keyword">ON</span> <span class="operator">&lt;</span>join_condition<span class="operator">&gt;</span></span><br><span class="line">(<span class="number">4</span>)<span class="keyword">WHERE</span> <span class="operator">&lt;</span>where_condition<span class="operator">&gt;</span></span><br><span class="line">(<span class="number">5</span>)<span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="operator">&lt;</span>group_by_list<span class="operator">&gt;</span></span><br><span class="line">(<span class="number">6</span>)<span class="keyword">WITH</span> <span class="operator">&lt;</span><span class="keyword">CUBE</span> <span class="operator">|</span> <span class="keyword">RollUP</span><span class="operator">&gt;</span></span><br><span class="line">(<span class="number">7</span>)<span class="keyword">HAVING</span> <span class="operator">&lt;</span>having_condition<span class="operator">&gt;</span></span><br><span class="line">(<span class="number">10</span>)<span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="operator">&lt;</span>order_by_list<span class="operator">&gt;</span> </span><br></pre></td></tr></table></figure>
+
+<h3 id="INSERT"><a href="#INSERT" class="headerlink" title="INSERT"></a>INSERT</h3><p>INSERT给表增加一行</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tablename [(columns, ...)] <span class="keyword">VALUES</span>(<span class="keyword">values</span>, ...);</span><br></pre></td></tr></table></figure>
+
+<h3 id="INSERT-SELECT"><a href="#INSERT-SELECT" class="headerlink" title="INSERT SELECT"></a>INSERT SELECT</h3><p>INSERT SELECT插入SELECT的结果到一个表中</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tablename [(columns, ...)]</span><br><span class="line"><span class="keyword">SELECT</span> columns, ... <span class="keyword">FROM</span> tablename, ...</span><br><span class="line">[<span class="keyword">WHERE</span> ...];</span><br></pre></td></tr></table></figure>
+
+<h3 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h3><p>DELETE 从表中删除一行或多行</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> tablename [<span class="keyword">WHERE</span> ...];</span><br></pre></td></tr></table></figure>
+
+<h3 id="SELECT"><a href="#SELECT" class="headerlink" title="SELECT"></a>SELECT</h3><p>SELECT用于从一个或多个表（视图）中检索数据</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> columnname, ...</span><br><span class="line"><span class="keyword">FROM</span> tablename, ...</span><br><span class="line">[<span class="keyword">WHERE</span> ...]</span><br><span class="line">[<span class="keyword">UNION</span> ...]</span><br><span class="line">[<span class="keyword">GROUP</span> <span class="keyword">BY</span> ...]</span><br><span class="line">[<span class="keyword">HAVING</span> ...]</span><br><span class="line">[<span class="keyword">ORDER</span> <span class="keyword">BY</span> ...];</span><br></pre></td></tr></table></figure>
+
+<h3 id="CREATE-TABLE"><a href="#CREATE-TABLE" class="headerlink" title="CREATE TABLE"></a>CREATE TABLE</h3><p>CREATE TABLE用于创建新数据库表，为更新已存在的表的结构，使用ALTER TABLE</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> tablename</span><br><span class="line">(</span><br><span class="line">	<span class="keyword">column</span> datatype [<span class="keyword">NULL</span><span class="operator">|</span><span class="keyword">NOT</span> <span class="keyword">NULL</span>] [CONSTRAINTS],</span><br><span class="line">   	<span class="keyword">column</span> datatype [<span class="keyword">NULL</span><span class="operator">|</span><span class="keyword">NOT</span> <span class="keyword">NULL</span>] [CONSTRAINTS],</span><br><span class="line">	...</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="CREATE-INDEX"><a href="#CREATE-INDEX" class="headerlink" title="CREATE INDEX"></a>CREATE INDEX</h3><p>CREATE INDEX用于在一个或多个列上创建索引</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> INDEX indexname <span class="keyword">on</span> tablename (<span class="keyword">column</span> [<span class="keyword">ASC</span><span class="operator">|</span><span class="keyword">DESC</span>], ...);</span><br></pre></td></tr></table></figure>
+
+<h3 id="CREATE-PROCEDURE"><a href="#CREATE-PROCEDURE" class="headerlink" title="CREATE PROCEDURE"></a>CREATE PROCEDURE</h3><p>CREATE PROCEDURE用于创建存储过程</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> procedurename([parameters])</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">END</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="CREATE-USER"><a href="#CREATE-USER" class="headerlink" title="CREATE USER"></a>CREATE USER</h3><p>CREATE USER用于向系统中添加新的用户账户</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> username [<span class="variable">@hostname</span>] [IDENTIFIED <span class="keyword">BY</span> [PASSWORD] <span class="string">&#x27;password&#x27;</span>];</span><br></pre></td></tr></table></figure>
+
+<h3 id="CREATE-VIEW"><a href="#CREATE-VIEW" class="headerlink" title="CREATE VIEW"></a>CREATE VIEW</h3><p>CREATE VIEW 用来创建一个或多个表上的新视图</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> [<span class="keyword">OR</span> REPLACE] <span class="keyword">VIEW</span> viewname <span class="keyword">AS</span> <span class="keyword">SELECT</span> ...;</span><br></pre></td></tr></table></figure>
+
+<h3 id="ALTER-TABLE"><a href="#ALTER-TABLE" class="headerlink" title="ALTER TABLE"></a>ALTER TABLE</h3><p>CREATE VIEW 用来创建一个或多个表上的新视图</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename</span><br><span class="line">(</span><br><span class="line">	<span class="keyword">ADD</span> <span class="keyword">column</span> datatype [<span class="keyword">NULL</span><span class="operator">|</span><span class="keyword">NOT</span> <span class="keyword">NULL</span>] [CONSTRAINTS],</span><br><span class="line">    CHANGE <span class="keyword">column</span> columns datatype [<span class="keyword">NULL</span><span class="operator">|</span><span class="keyword">NOT</span> <span class="keyword">NULL</span>] [CONSTRAINTS],</span><br><span class="line">    <span class="keyword">DROP</span> <span class="keyword">column</span>,</span><br><span class="line">    ...</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="DROP"><a href="#DROP" class="headerlink" title="DROP"></a>DROP</h3><p>DROP 永久地删除数据库对象（表、视图、索引等）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> DATABASE<span class="operator">|</span>INDEX<span class="operator">|</span><span class="keyword">PROCEDURE</span><span class="operator">|</span><span class="keyword">TABLE</span><span class="operator">|</span>TRICGER<span class="operator">|</span><span class="keyword">VIEW</span> itemname;</span><br></pre></td></tr></table></figure>
+
+<h3 id="START-TRANSACTION"><a href="#START-TRANSACTION" class="headerlink" title="START  TRANSACTION"></a>START  TRANSACTION</h3><p>START TRANSACTION 表示一个新的事务处理块的开始</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">START</span> TRANSACTION;</span><br></pre></td></tr></table></figure>
+
+<h3 id="ROLLBACK"><a href="#ROLLBACK" class="headerlink" title="ROLLBACK"></a>ROLLBACK</h3><p>ROLLBACK用于撤销一个事务处理块</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ROLLBACK</span> [<span class="keyword">TO</span> savepointname];</span><br></pre></td></tr></table></figure>
+
+<h3 id="COMMIT"><a href="#COMMIT" class="headerlink" title="COMMIT"></a>COMMIT</h3><p>COMMIT用来将事务处理写到数据库</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">COMMIT</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="SAVEPOINT"><a href="#SAVEPOINT" class="headerlink" title="SAVEPOINT"></a>SAVEPOINT</h3><p>SAVEPOINT为使用ROLLBACK语句设立保留点</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SAVEPOINT</span> <span class="keyword">sql</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="串数据类型"><a href="#串数据类型" class="headerlink" title="串数据类型"></a>串数据类型</h3><table>
+<thead>
+<tr>
+<th align="center">数据类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">CHAR</td>
+<td align="center">1~255个字符的定长串。它的长度必须在创建时指定，否则MySQL假定为CHAR(1)</td>
+</tr>
+<tr>
+<td align="center">ENUM</td>
+<td align="center">接受最多64K个串组成的一个预定义集合的某个串</td>
+</tr>
+<tr>
+<td align="center">LONGTEXT</td>
+<td align="center">与TEXT相同，但最大长度为4GB</td>
+</tr>
+<tr>
+<td align="center">MEDIUMTEXT</td>
+<td align="center">与TEXT相同，但最大长度为16K</td>
+</tr>
+<tr>
+<td align="center">SET</td>
+<td align="center">接受最多64个串组成的一个预定义集合的零个或多个串</td>
+</tr>
+<tr>
+<td align="center">TEXT</td>
+<td align="center">最大长度为64K的变长文本</td>
+</tr>
+<tr>
+<td align="center">TINYTEXT</td>
+<td align="center">与 TEXT 相同，但最大长度为 255 字节</td>
+</tr>
+<tr>
+<td align="center">VARCHAR</td>
+<td align="center">长度可变，最多不超过255字节。如果在创建时指定为 VARCHAR(n)，则可存储 0 到 n 个字符的变长串（其中 n≤255）</td>
+</tr>
+</tbody></table>
+<h3 id="数值数据类型"><a href="#数值数据类型" class="headerlink" title="数值数据类型"></a>数值数据类型</h3><table>
+<thead>
+<tr>
+<th align="center">数据类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">BIT</td>
+<td align="center">位字段，1~64位</td>
+</tr>
+<tr>
+<td align="center">BIGINT</td>
+<td align="center">整数值</td>
+</tr>
+<tr>
+<td align="center">BOOLEAN</td>
+<td align="center">布尔标志，0，1</td>
+</tr>
+<tr>
+<td align="center">DECIMAL</td>
+<td align="center">精度可变的浮点值</td>
+</tr>
+<tr>
+<td align="center">DOUBLE</td>
+<td align="center">双精度浮点值</td>
+</tr>
+<tr>
+<td align="center">FLOAT</td>
+<td align="center">单精度浮点值</td>
+</tr>
+<tr>
+<td align="center">INT</td>
+<td align="center">整数值</td>
+</tr>
+<tr>
+<td align="center">MEDIUMINT</td>
+<td align="center">整数值</td>
+</tr>
+<tr>
+<td align="center">REAL</td>
+<td align="center">4字节的浮点值</td>
+</tr>
+<tr>
+<td align="center">SMALLINT</td>
+<td align="center">整数值</td>
+</tr>
+<tr>
+<td align="center">TINYINT</td>
+<td align="center">整数值</td>
+</tr>
+</tbody></table>
+<h3 id="日期和时间数据类型"><a href="#日期和时间数据类型" class="headerlink" title="日期和时间数据类型"></a>日期和时间数据类型</h3><table>
+<thead>
+<tr>
+<th align="center">数据类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">DATE</td>
+<td align="center">YYYY-MM-DD</td>
+</tr>
+<tr>
+<td align="center">DATETIME</td>
+<td align="center">DATE和TIME的组合</td>
+</tr>
+<tr>
+<td align="center">TIMESTAMP</td>
+<td align="center">功能和DATETIME相同（但范围较小）</td>
+</tr>
+<tr>
+<td align="center">TIME</td>
+<td align="center">格式为 HH:MM:SS</td>
+</tr>
+<tr>
+<td align="center">YEAR</td>
+<td align="center">用2位数字表示，范围是1970<del>2069；用4位数字表示，范围是1901</del>2155</td>
+</tr>
+</tbody></table>
+<h3 id="二进制数据类型"><a href="#二进制数据类型" class="headerlink" title="二进制数据类型"></a>二进制数据类型</h3><table>
+<thead>
+<tr>
+<th align="center">数据类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">BLOB</td>
+<td align="center">最大长度64KB</td>
+</tr>
+<tr>
+<td align="center">MEDIUMBLOB</td>
+<td align="center">最大长度16MB</td>
+</tr>
+<tr>
+<td align="center">LONGBLOB</td>
+<td align="center">最大长度4GB</td>
+</tr>
+<tr>
+<td align="center">TINYBLOB</td>
+<td align="center">最大长度255字节</td>
+</tr>
+</tbody></table>
+<h2 id="设计规范"><a href="#设计规范" class="headerlink" title="设计规范"></a>设计规范</h2><h3 id="规范背景与目的"><a href="#规范背景与目的" class="headerlink" title="规范背景与目的"></a>规范背景与目的</h3><p>MySQL数据库与Oracle、SQL Server等数据库相比，有其内核上的优势与劣势。在使用MySQL数据库的时候需要遵循一定规范，扬长避短。</p>
+<h3 id="设计规范-1"><a href="#设计规范-1" class="headerlink" title="设计规范"></a>设计规范</h3><h4 id="一般命名规则"><a href="#一般命名规则" class="headerlink" title="一般命名规则"></a>一般命名规则</h4><ol>
+<li>使用小写，有助于提高速度，避免因大小写敏感而导致的错误</li>
+<li>没有空格，使用下划线代替</li>
+<li>名称中没有数字，只有英文字母</li>
+<li>有效的可理解的名称</li>
+<li>名称应该是自我解释的</li>
+<li>名称不应超过32个字符</li>
+<li>避免使用前缀</li>
+</ol>
+<h4 id="库"><a href="#库" class="headerlink" title="库"></a>库</h4><ol>
+<li>遵循以上全部一般命名规则</li>
+<li>使用单数</li>
+<li>库的名称格式：业务系统名称_子系统名</li>
+<li>一般分库名称命名格式是<code>库通配名_编号</code>，编号从0开始递增</li>
+<li>创建数据库时必须显式指定字符集，并且字符集只能是utf8或者uft8mb4</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> database db_name <span class="keyword">default</span> <span class="type">character</span> <span class="keyword">set</span> utf8;</span><br></pre></td></tr></table></figure>
+
+<h4 id="表"><a href="#表" class="headerlink" title="表"></a>表</h4><ol>
+<li>遵循以上全部一般命名规则</li>
+<li>使用单数</li>
+<li>相关模块的表名与表名之间尽量体现<code>join</code>的关系，如<code>user</code>表和<code>user_login</code>表</li>
+<li>创建表时必须显式指定字符集为utf8或utf8mb4</li>
+<li>创建表时必须显式指定表存储引擎类型，如无特殊需求，一律为 InnoDB。当需要使用除 InnoDB&#x2F;MyISAM&#x2F;Memory 以外的存储引擎时，必须通过 DBA 审核才能在生产环境中使用。因为 InnoDB 表支持事务、行锁、宕机恢复、MVCC 等关系型数据库重要特性，为业界使用最多的 MySQL 存储引擎。而这是其它大多数存储引擎不具备的，因此首推 InnoDB</li>
+<li>建表必须有comment</li>
+<li>关于主键：(1) 命名为 <code>id</code>，类型为 int 或 <code>bigint</code>，且为 <code>auto_increment</code>；(2) 标识表里每一行主体的字段不要设为主键，建议设为其它字段如 <code>user_id</code>，<code>order_id</code>等，并建立 <code>unique key</code> 索引。因为如果设为主键且主键值为随机插入，则会导致 InnoDB 内部 page 分裂和大量随机 I&#x2F;O，性能下降</li>
+<li>【建议】核心表（如用户表，金钱相关的表）必须有行数据的创建时间字段 <code>create_time</code> 和最后更新时间字段 <code>update_time</code>，便于排查问题</li>
+<li>【建议】表中所有字段必须都是NOT NULL属性，业务可以根据需要定义<code>DEFAULT</code>值。因为使用NULL值会存在每一行都会占用额外存储空间，数据迁移容易出错，聚合函数计算结果偏差等问题</li>
+<li>【建议】对表里的<code>blob</code>、<code>text</code>等大字段，垂直拆分到其它表里，仅在需要读这些对象的时候才去select</li>
+<li>【建议】反范式设计：把经常需要join查询的字段，在其它表里冗余一份。如<code>username</code>属性在<code>user_account</code>,<code>user_login_log</code>等表里冗余一份，减少join查询</li>
+<li>中间表用于保留中间结果集，名称必须以<code>tmp_</code>开头。备份表用于备份或抓取表快照，名称必须为<code>bak_</code>开头。中间表和备份表定期清理</li>
+<li>对于超过100W行的大表进行<code>alter table</code>，必须经过DBA审核，并在业务低峰期执行。因为<code>alter table</code>会产生表锁，期间阻塞对于该表的所有写入，对于业务可能会产生极大影响</li>
+</ol>
+<h4 id="字段"><a href="#字段" class="headerlink" title="字段"></a>字段</h4><ol>
+<li>遵循以上全部一般命名规则</li>
+<li>【建议】尽可能选择短的或一两个单词</li>
+<li>避免使用保留字作为字段名称：<code>order</code>，<code>date</code>，<code>name</code> 是数据库的保留字，避免使用它。可以为这些名称添加前缀使其易于理解，如 <code>user_name</code>，<code>signup_date</code> 等</li>
+<li>避免使用与表名相同的字段名，这会在编写查询时造成混淆</li>
+<li>在数据库模式上定义外键</li>
+<li>避免使用缩写或基于首字母缩写词的名称</li>
+<li>外键列必须具有表名及其主键，例如：<code>blog_id</code> 表示来自表博客的外键 id</li>
+</ol>
+<h4 id="索引设计"><a href="#索引设计" class="headerlink" title="索引设计"></a>索引设计</h4><ol>
+<li>InnoDB表必须主键为<code>id int/bigint auto_increment</code>，且主键值禁止被更新</li>
+<li>【建议】主键的名称以<code>pk_</code>开头，唯一键以<code>uk_</code>开头，普通索引以<code>ix_</code>开头，一律使用小写格式，以表名&#x2F;字段的名称或缩写作为后缀</li>
+<li>InnoDB 和 MyISAM 存储引擎表，索引类型必须为 <code>BTREE</code>；MEMORY 表可以根据需要选择 <code>HASH</code> 或者 <code>BTREE</code> 类型索引</li>
+<li>单个索引中每个索引记录的长度不能超过 64KB</li>
+<li>【建议】单个表上的索引个数不能超过 7 个</li>
+<li>【建议】在多表 join 的 SQL 里，保证被驱动表的连接列上有索引，这样 join 执行效率最高</li>
+<li>【建议】建表或加索引时，保证表里互相不存在冗余索引。对于 MySQL 来说，如果表里已经存在 <code>key(a, b)</code>，则 <code>key(a)</code> 为冗余索引，需要删除。</li>
+<li>【建议】如果选择性超过 20%，那么全表扫描比使用索引性能更优，即没有设置索引的必要</li>
+</ol>
+<h4 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h4><ol>
+<li>数据库本身库、表、列所有字符集必须保持一致，为utf8或utf8mb4</li>
+<li>前端程序字符集或者环境变量中的字符集，与数据库、表的字符集必须一致，统一为utf8</li>
+</ol>
+<h4 id="程序层DAO设计建议"><a href="#程序层DAO设计建议" class="headerlink" title="程序层DAO设计建议"></a>程序层DAO设计建议</h4><ol>
+<li>【建议】新的代码不要用 model，推荐使用手动拼 SQL + 绑定变量传入参数的方式。因为 model 虽然可以使用面向对象的方式操作 db，但是其使用不当很容易造成生成的 SQL 非常复杂，且 model 层自己做的强制类型转换性能较差，最终导致数据库性能下降</li>
+<li>【建议】前端程序连接 MySQL 或者 Redis，必须要有连接超时和失败重连机制，且失败重试必须有间隔时间</li>
+<li>【建议】前端程序报错里尽量能够提示 MySQL 或 Redis 原生态的报错信息，便于排查错误</li>
+<li>【建议】对于有连接池的前端程序，必须根据业务需要配置初始、最小、最大连接数，超时时间以及连接回收机制，否则会耗尽数据库连接资源，造成线上事故</li>
+<li>【建议】对于 <code>log</code> 或 <code>history</code> 类型的表，随时间增长容易越来越大，因此上线前 RD 或者 DBA 必须建立表数据清理或归档方案</li>
+<li>【建议】业务逻辑之间加锁顺序尽量保持一致，否则会导致死锁</li>
+<li>【建议】对于单表读写比大于 10:1 的数据行或单个列，可以将热点数据放在缓存里（如 Memcached 或 Redis），加快访问速度，降低 MySQL 压力</li>
+</ol>
+<h4 id="创建表语句示例"><a href="#创建表语句示例" class="headerlink" title="创建表语句示例"></a>创建表语句示例</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">user</span> </span><br><span class="line">( </span><br><span class="line">    `id`            <span class="type">bigint</span>(<span class="number">11</span>) <span class="keyword">not</span> <span class="keyword">null</span> auto_increment, </span><br><span class="line">    `user_id`       <span class="type">bigint</span>(<span class="number">11</span>) <span class="keyword">not</span> <span class="keyword">null</span> comment <span class="string">&#x27;用户 ID&#x27;</span>, </span><br><span class="line">    `username`      <span class="type">varchar</span>(<span class="number">45</span>) <span class="keyword">not</span> <span class="keyword">null</span> comment <span class="string">&#x27;登录名&#x27;</span>, </span><br><span class="line">    `email`         <span class="type">varchar</span>(<span class="number">30</span>) <span class="keyword">not</span> <span class="keyword">null</span> comment <span class="string">&#x27;邮箱&#x27;</span>, </span><br><span class="line">    `nickname`      <span class="type">varchar</span>(<span class="number">45</span>) <span class="keyword">not</span> <span class="keyword">null</span> comment <span class="string">&#x27;昵称&#x27;</span>, </span><br><span class="line">    `avatar`        <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">not</span> <span class="keyword">null</span> comment <span class="string">&#x27;头像&#x27;</span>, </span><br><span class="line">    `birthday`      <span class="type">date</span> <span class="keyword">not</span> <span class="keyword">null</span> comment <span class="string">&#x27;生日&#x27;</span>, </span><br><span class="line">    `gender`        tinyint(<span class="number">4</span>) <span class="keyword">default</span> <span class="string">&#x27;0&#x27;</span> comment <span class="string">&#x27;性别&#x27;</span>, </span><br><span class="line">    `intro`         <span class="type">varchar</span>(<span class="number">150</span>) <span class="keyword">default</span> <span class="keyword">null</span> comment <span class="string">&#x27;简介&#x27;</span>, </span><br><span class="line">    `resume_url`    <span class="type">varchar</span>(<span class="number">300</span>) <span class="keyword">not</span> <span class="keyword">null</span> comment <span class="string">&#x27;简历存放地址&#x27;</span>, </span><br><span class="line">    `register_ip`   <span class="type">int</span> <span class="keyword">not</span> <span class="keyword">null</span> comment <span class="string">&#x27;用户注册时的源 IP&#x27;</span>, </span><br><span class="line">    `review_status` tinyint <span class="keyword">not</span> <span class="keyword">null</span> comment <span class="string">&#x27;审核状态，1-通过，2-审核中，3-未通过，4-尚未提交审核&#x27;</span>, </span><br><span class="line">    `create_time`   <span class="type">timestamp</span> <span class="keyword">not</span> <span class="keyword">null</span> comment <span class="string">&#x27;记录创建的时间&#x27;</span>, </span><br><span class="line">    `update_time`   <span class="type">timestamp</span> <span class="keyword">not</span> <span class="keyword">null</span> comment <span class="string">&#x27;资料修改的时间&#x27;</span>, </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">primary</span> key (`id`), </span><br><span class="line">    <span class="keyword">unique</span> key `idx_user_id` (`user_id`), </span><br><span class="line">    key `idx_username`(`username`), </span><br><span class="line">    key `idx_create_time`(`create_time`, `review_status`) </span><br><span class="line">) </span><br><span class="line">engine <span class="operator">=</span> InnoDB</span><br><span class="line"><span class="keyword">default</span> charset <span class="operator">=</span> utf8 </span><br><span class="line">comment <span class="operator">=</span> <span class="string">&#x27;用户基本信息&#x27;</span>; </span><br></pre></td></tr></table></figure>
+
+<h3 id="SQL编写"><a href="#SQL编写" class="headerlink" title="SQL编写"></a>SQL编写</h3><h4 id="DML语句"><a href="#DML语句" class="headerlink" title="DML语句"></a>DML语句</h4><ol>
+<li>select 语句必须指定具体字段名称，禁止写成 <code>*</code>。因为 <code>select *</code> 会将不该读的数据也从 MySQL 里读出来，造成网卡压力</li>
+<li>insert 语句指定具体字段名称，不要写成 <code>insert into t1 values(…)</code>，道理同上</li>
+<li>【建议】<code>insert into … values(xx),(xx),(xx)…</code>，这里 xx 的值不要超过 5000 个。值过多虽然上线很快，但会引起主从同步延迟</li>
+<li>【建议】select 语句不要使用 <code>union</code>，推荐使用 <code>union all</code>，并且 <code>union</code> 子句个数限制在 5 个以内。因为 <code>union all</code> 不需要去重，节省数据库资源，提高性能</li>
+<li>【建议】in 值列表限制在 500 以内。例如 <code>select … where user_id in(…500 个以内…)</code>，这么做是为了减少底层扫描，减轻数据库压力从而加速查询</li>
+<li>【建议】事务里批量更新数据需要控制数量，进行必要的 sleep，做到少量多次</li>
+<li>事务涉及的表必须全部是 InnoDB 表。否则一旦失败不会全部回滚，且易造成主从库同步终端</li>
+<li>写入和事务发往主库，只读 SQL 发往从库</li>
+<li>除静态表或小表（100 行以内），dml 语句必须有 where 条件，且使用索引查找</li>
+<li>生产环境禁止使用 <code>hint</code>，如 <code>sql_no_cache</code>，<code>force index</code>，<code>ignore key</code>，<code>straight join</code> 等。因为 <code>hint</code> 是用来强制 sql 按照某个执行计划来执行，但随着数据量变化我们无法保证自己当初的预判是正确的，因此我们要相信 MySQL 优化器</li>
+<li>where 条件里等号左右字段类型必须一致，否则无法利用索引</li>
+<li>生产数据库中强烈不推荐大表上发生全表扫描，但对于 100 行以下的静态表可以全表扫描。查询数据量不要超过表行数的 25%，否则不会利用索引</li>
+<li>where 子句中禁止只使用全模糊的 like 条件进行查找，必须有其它等值或范围查询条件，否则无法利用索引</li>
+</ol>
+<h4 id="多表连接"><a href="#多表连接" class="headerlink" title="多表连接"></a>多表连接</h4><ol>
+<li>禁止跨 DB 的 join 语句。因为这样可以减少模块间耦合，为数据库拆分奠定坚实基础</li>
+<li>禁止在业务的更新类 SQL 语句中使用 join，比如 <code>update t1 join t2 …</code></li>
+<li>【建议】不建议使用子查询，建议将子查询 SQL 拆开结合程序多次查询，或使用 join 来代替子查询</li>
+<li>【建议】线上环境，多表 join 不要超过 3 个表</li>
+</ol>
+<h2 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h2><h3 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h3><table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">CONCAT(s1,s2,……)</td>
+<td align="center">字符串连接</td>
+</tr>
+<tr>
+<td align="center">INSERT(str,x,y,instr)</td>
+<td align="center">将指定开始标记到结束的字符串替换为指定字符串</td>
+</tr>
+<tr>
+<td align="center">LOWER(str)</td>
+<td align="center">将字符串所有字符转为小写</td>
+</tr>
+<tr>
+<td align="center">UPPER(str)</td>
+<td align="center">将字符串所有字符转为大写</td>
+</tr>
+<tr>
+<td align="center">LEFT(str, x)</td>
+<td align="center">返回字符串str最左边的x个字符</td>
+</tr>
+<tr>
+<td align="center">RIGHT(str,x)</td>
+<td align="center">返回字符串 str 最右边的 x 个字符</td>
+</tr>
+<tr>
+<td align="center">LPAD(str,n,pad)</td>
+<td align="center">在 str 最左边填充 n 个 pad</td>
+</tr>
+<tr>
+<td align="center">RPAD(str,n,pad)</td>
+<td align="center">在 str 最右边填充 n 个 pad</td>
+</tr>
+<tr>
+<td align="center">LTRIM(str)</td>
+<td align="center">去掉字符串 str 左侧的空格</td>
+</tr>
+<tr>
+<td align="center">RTRIM(str)</td>
+<td align="center">去掉字符串 str 右侧的空格</td>
+</tr>
+<tr>
+<td align="center">REPEAT(str,x)</td>
+<td align="center">返回 str 重复 x 次的结果</td>
+</tr>
+<tr>
+<td align="center">STRCMP(s1,s2)</td>
+<td align="center">比较字符串 s1 和 s2</td>
+</tr>
+<tr>
+<td align="center">REPLACE(str,a,b)</td>
+<td align="center">用字符串 b 替换字符串 str 中所有出现的字符串 a</td>
+</tr>
+<tr>
+<td align="center">TRIM(str)</td>
+<td align="center">去掉字符串行尾和行头的空格</td>
+</tr>
+<tr>
+<td align="center">SUBSTRING(str,x,y)</td>
+<td align="center">返回从字符串 str x 位置起 y 个字符长度的字串</td>
+</tr>
+</tbody></table>
+<h3 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h3><table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ABS(x)</td>
+<td align="center">返回 x 的绝对值</td>
+</tr>
+<tr>
+<td align="center">CEIL(x)</td>
+<td align="center">返回大于 x 的最小整数值</td>
+</tr>
+<tr>
+<td align="center">FLOOR(x)</td>
+<td align="center">返回小于 x 的最大整数值</td>
+</tr>
+<tr>
+<td align="center">MOD(x,y)</td>
+<td align="center">返回 x&#x2F;y 的模</td>
+</tr>
+<tr>
+<td align="center">RAND()</td>
+<td align="center">返回 0～1 内的随机值</td>
+</tr>
+<tr>
+<td align="center">ROUND(x,y)</td>
+<td align="center">返回参数 x 的四舍五入的有 y 位小数的值</td>
+</tr>
+<tr>
+<td align="center">TRUNCATE(x,y)</td>
+<td align="center">返回数字 x 截断位 y 位小数的结果</td>
+</tr>
+</tbody></table>
+<h3 id="日期和时间函数"><a href="#日期和时间函数" class="headerlink" title="日期和时间函数"></a>日期和时间函数</h3><table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">CURDATE()</td>
+<td align="center">返回当前日期</td>
+</tr>
+<tr>
+<td align="center">CURTIME()</td>
+<td align="center">返回当前时间</td>
+</tr>
+<tr>
+<td align="center">NOW()</td>
+<td align="center">返回当前的日期和时间</td>
+</tr>
+<tr>
+<td align="center">UNIX_TIMESTAMP(date)</td>
+<td align="center">返回日期 date 的 UNIX 时间戳</td>
+</tr>
+<tr>
+<td align="center">FROM_UNIXTIME</td>
+<td align="center">返回 UNIX 时间戳的日期值</td>
+</tr>
+<tr>
+<td align="center">WEEK(date)</td>
+<td align="center">返回日期 date 为一年中的第几周</td>
+</tr>
+<tr>
+<td align="center">YEAR(date)</td>
+<td align="center">返回日期 date 的年份</td>
+</tr>
+<tr>
+<td align="center">HOUR(time)</td>
+<td align="center">返回 time 的小时值</td>
+</tr>
+<tr>
+<td align="center">MINUTE(time)</td>
+<td align="center">返回 time 的分钟值</td>
+</tr>
+<tr>
+<td align="center">MONTHNAME(date)</td>
+<td align="center">返回 date 的月份名</td>
+</tr>
+<tr>
+<td align="center">DATE_FORMAT(date,fmt)</td>
+<td align="center">返回按字符串 fmt 格式日期 date 值</td>
+</tr>
+<tr>
+<td align="center">DATE_ADD(date,interval expr type)</td>
+<td align="center">返回一个日期或时间值加上一个时间间隔的时间值</td>
+</tr>
+<tr>
+<td align="center">DATEDIFF(expr,expr2)</td>
+<td align="center">返回起始时间 expr 和结束时间 expr2 之间的天数</td>
+</tr>
+</tbody></table>
+<h3 id="流程函数"><a href="#流程函数" class="headerlink" title="流程函数"></a>流程函数</h3><table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">IF(value,t f)</td>
+<td align="center">如果 value 是真，返回 t；否则返回 f</td>
+</tr>
+<tr>
+<td align="center">IFNULL(value1,value2)</td>
+<td align="center">如果 value1 不为空，返回 value1，否则返回 value2</td>
+</tr>
+<tr>
+<td align="center">CASE WHEN [value1] THEN[result1]…ELSE[default]END</td>
+<td align="center">如果 value1 是真，返回 result1，否则返回 default</td>
+</tr>
+<tr>
+<td align="center">CASE[expr] WHEN [value1]THEN[result1]…ELSE[default]END</td>
+<td align="center">如果 expr 等于 value1，返回 result1，否则返回 default</td>
+</tr>
+</tbody></table>
+<h3 id="其他常用函数"><a href="#其他常用函数" class="headerlink" title="其他常用函数"></a>其他常用函数</h3><table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">DATEBASE()</td>
+<td align="center">返回当前数据库名</td>
+</tr>
+<tr>
+<td align="center">VERSION()</td>
+<td align="center">返回当前数据库版本</td>
+</tr>
+<tr>
+<td align="center">USER()</td>
+<td align="center">返回当前登录用户名</td>
+</tr>
+<tr>
+<td align="center">INET_ATON(ip)</td>
+<td align="center">返回 ip 地址的数字表示</td>
+</tr>
+<tr>
+<td align="center">INET_NTOA(num)</td>
+<td align="center">返回数字代表的 ip 地址</td>
+</tr>
+<tr>
+<td align="center">PASSWORD(str)</td>
+<td align="center">返回字符串 str 的加密版本</td>
+</tr>
+<tr>
+<td align="center">MD5()</td>
+<td align="center">返回字符串 str 的 md5 值</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/12/15/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="next" title="Java多线程及线程安全">
+                <i class="fa fa-chevron-left"></i> Java多线程及线程安全
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/12/26/Maven-note/" rel="prev" title="Maven-note">
+                Maven-note <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
 
     <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+      
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+          </div>
+          
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/cat.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhaoxfan98" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhaoxfan98@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL%E8%AF%AD%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">MySQL语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E5%8F%A5%E5%8F%8A%E8%AF%AD%E6%B3%95%E7%9A%84%E7%BA%A6%E5%AE%9A"><span class="nav-number">1.1.</span> <span class="nav-text">语句及语法的约定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="nav-number">1.2.</span> <span class="nav-text">SQL执行顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#INSERT"><span class="nav-number">1.3.</span> <span class="nav-text">INSERT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#INSERT-SELECT"><span class="nav-number">1.4.</span> <span class="nav-text">INSERT SELECT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DELETE"><span class="nav-number">1.5.</span> <span class="nav-text">DELETE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SELECT"><span class="nav-number">1.6.</span> <span class="nav-text">SELECT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CREATE-TABLE"><span class="nav-number">1.7.</span> <span class="nav-text">CREATE TABLE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CREATE-INDEX"><span class="nav-number">1.8.</span> <span class="nav-text">CREATE INDEX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CREATE-PROCEDURE"><span class="nav-number">1.9.</span> <span class="nav-text">CREATE PROCEDURE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CREATE-USER"><span class="nav-number">1.10.</span> <span class="nav-text">CREATE USER</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CREATE-VIEW"><span class="nav-number">1.11.</span> <span class="nav-text">CREATE VIEW</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ALTER-TABLE"><span class="nav-number">1.12.</span> <span class="nav-text">ALTER TABLE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DROP"><span class="nav-number">1.13.</span> <span class="nav-text">DROP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#START-TRANSACTION"><span class="nav-number">1.14.</span> <span class="nav-text">START  TRANSACTION</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ROLLBACK"><span class="nav-number">1.15.</span> <span class="nav-text">ROLLBACK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#COMMIT"><span class="nav-number">1.16.</span> <span class="nav-text">COMMIT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SAVEPOINT"><span class="nav-number">1.17.</span> <span class="nav-text">SAVEPOINT</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%B2%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.1.</span> <span class="nav-text">串数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E5%80%BC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.2.</span> <span class="nav-text">数值数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.3.</span> <span class="nav-text">日期和时间数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.4.</span> <span class="nav-text">二进制数据类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83"><span class="nav-number">3.</span> <span class="nav-text">设计规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%84%E8%8C%83%E8%83%8C%E6%99%AF%E4%B8%8E%E7%9B%AE%E7%9A%84"><span class="nav-number">3.1.</span> <span class="nav-text">规范背景与目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83-1"><span class="nav-number">3.2.</span> <span class="nav-text">设计规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E8%88%AC%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="nav-number">3.2.1.</span> <span class="nav-text">一般命名规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BA%93"><span class="nav-number">3.2.2.</span> <span class="nav-text">库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A8"><span class="nav-number">3.2.3.</span> <span class="nav-text">表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E6%AE%B5"><span class="nav-number">3.2.4.</span> <span class="nav-text">字段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E8%AE%BE%E8%AE%A1"><span class="nav-number">3.2.5.</span> <span class="nav-text">索引设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E9%9B%86"><span class="nav-number">3.2.6.</span> <span class="nav-text">字符集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E5%B1%82DAO%E8%AE%BE%E8%AE%A1%E5%BB%BA%E8%AE%AE"><span class="nav-number">3.2.7.</span> <span class="nav-text">程序层DAO设计建议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%A1%A8%E8%AF%AD%E5%8F%A5%E7%A4%BA%E4%BE%8B"><span class="nav-number">3.2.8.</span> <span class="nav-text">创建表语句示例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL%E7%BC%96%E5%86%99"><span class="nav-number">3.3.</span> <span class="nav-text">SQL编写</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DML%E8%AF%AD%E5%8F%A5"><span class="nav-number">3.3.1.</span> <span class="nav-text">DML语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E8%A1%A8%E8%BF%9E%E6%8E%A5"><span class="nav-number">3.3.2.</span> <span class="nav-text">多表连接</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">常用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0"><span class="nav-number">4.1.</span> <span class="nav-text">字符串函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E5%87%BD%E6%95%B0"><span class="nav-number">4.2.</span> <span class="nav-text">数学函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4%E5%87%BD%E6%95%B0"><span class="nav-number">4.3.</span> <span class="nav-text">日期和时间函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E5%87%BD%E6%95%B0"><span class="nav-number">4.4.</span> <span class="nav-text">流程函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="nav-number">4.5.</span> <span class="nav-text">其他常用函数</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhaoxfan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
