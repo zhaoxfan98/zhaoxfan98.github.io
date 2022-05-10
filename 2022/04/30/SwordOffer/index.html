@@ -79,13 +79,90 @@
 
 
 
-<meta property="og:type" content="website">
+<meta name="description" content="9.用两个栈实现队列  思路：维护两个栈，第一个栈支持插入操作，第二个栈支持删除操作。 在执行删除操作的时候我们首先看下第二个栈是否为空。如果为空，我们将第一个栈里的元素一个个弹出插入到第二个栈里，这样第二个栈里元素的顺序就是待删除的元素的顺序，要执行删除操作的时候我们直接弹出第二个栈的元素返回即可  12345678910111213141516171819202122232425262728c">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/2022/04/30/SwordOffer/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="9.用两个栈实现队列  思路：维护两个栈，第一个栈支持插入操作，第二个栈支持删除操作。 在执行删除操作的时候我们首先看下第二个栈是否为空。如果为空，我们将第一个栈里的元素一个个弹出插入到第二个栈里，这样第二个栈里元素的顺序就是待删除的元素的顺序，要执行删除操作的时候我们直接弹出第二个栈的元素返回即可  12345678910111213141516171819202122232425262728c">
 <meta property="og:locale">
+<meta property="og:image" content="http://example.com/SwordOffer/9.png">
+<meta property="og:image" content="http://example.com/SwordOffer/30.png">
+<meta property="og:image" content="http://example.com/SwordOffer/6.png">
+<meta property="og:image" content="http://example.com/SwordOffer/24.png">
+<meta property="og:image" content="http://example.com/SwordOffer/35.png">
+<meta property="og:image" content="http://example.com/SwordOffer/5.png">
+<meta property="og:image" content="http://example.com/SwordOffer/58.png">
+<meta property="og:image" content="http://example.com/SwordOffer/3.png">
+<meta property="og:image" content="http://example.com/SwordOffer/53.png">
+<meta property="og:image" content="http://example.com/SwordOffer/53_2.png">
+<meta property="og:image" content="http://example.com/SwordOffer/4.png">
+<meta property="og:image" content="http://example.com/SwordOffer/11.png">
+<meta property="og:image" content="http://example.com/SwordOffer/11_2.png">
+<meta property="og:image" content="http://example.com/SwordOffer/50.png">
+<meta property="og:image" content="http://example.com/SwordOffer/32-1.png">
+<meta property="og:image" content="http://example.com/SwordOffer/32-2.png">
+<meta property="og:image" content="http://example.com/SwordOffer/32-3.png">
+<meta property="og:image" content="http://example.com/SwordOffer/10-1.png">
+<meta property="og:image" content="http://example.com/SwordOffer/10-2.png">
+<meta property="og:image" content="http://example.com/SwordOffer/63.png">
+<meta property="og:image" content="http://example.com/SwordOffer/42.png">
+<meta property="og:image" content="http://example.com/SwordOffer/47.png">
+<meta property="og:image" content="http://example.com/SwordOffer/46.png">
+<meta property="og:image" content="http://example.com/SwordOffer/46_1.png">
+<meta property="og:image" content="http://example.com/SwordOffer/48.png">
+<meta property="og:image" content="http://example.com/SwordOffer/48_1.png">
+<meta property="og:image" content="http://example.com/SwordOffer/18.png">
+<meta property="og:image" content="http://example.com/SwordOffer/22.png">
+<meta property="og:image" content="http://example.com/SwordOffer/25.png">
+<meta property="og:image" content="http://example.com/SwordOffer/52.png">
+<meta property="og:image" content="http://example.com/SwordOffer/21.png">
+<meta property="og:image" content="http://example.com/SwordOffer/57..png">
+<meta property="og:image" content="http://example.com/SwordOffer/58_1.png">
+<meta property="og:image" content="http://example.com/SwordOffer/12.png">
+<meta property="og:image" content="http://example.com/SwordOffer/13.png">
+<meta property="og:image" content="http://example.com/SwordOffer/34.png">
+<meta property="og:image" content="http://example.com/SwordOffer/36.png">
+<meta property="og:image" content="http://example.com/SwordOffer/54.png">
+<meta property="og:image" content="http://example.com/SwordOffer/45.png">
+<meta property="og:image" content="http://example.com/SwordOffer/61.png">
+<meta property="og:image" content="http://example.com/SwordOffer/40.png">
+<meta property="og:image" content="http://example.com/SwordOffer/41.png">
+<meta property="og:image" content="http://example.com/SwordOffer/55_1.png">
+<meta property="og:image" content="http://example.com/SwordOffer/55_2.png">
+<meta property="og:image" content="http://example.com/SwordOffer/64.png">
+<meta property="og:image" content="http://example.com/SwordOffer/68_1.png">
+<meta property="og:image" content="http://example.com/SwordOffer/68_2.png">
+<meta property="og:image" content="http://example.com/SwordOffer/7.png">
+<meta property="og:image" content="http://example.com/SwordOffer/16.png">
+<meta property="og:image" content="http://example.com/SwordOffer/33.png">
+<meta property="og:image" content="http://example.com/SwordOffer/15.png">
+<meta property="og:image" content="http://example.com/SwordOffer/65.png">
+<meta property="og:image" content="http://example.com/SwordOffer/56_1.png">
+<meta property="og:image" content="http://example.com/SwordOffer/56_2.png">
+<meta property="og:image" content="http://example.com/SwordOffer/39.png">
+<meta property="og:image" content="http://example.com/SwordOffer/66.png">
+<meta property="og:image" content="http://example.com/SwordOffer/14_1.png">
+<meta property="og:image" content="http://example.com/SwordOffer/57_2.png">
+<meta property="og:image" content="http://example.com/SwordOffer/62.png">
+<meta property="og:image" content="http://example.com/SwordOffer/29.png">
+<meta property="og:image" content="http://example.com/SwordOffer/31.png">
+<meta property="og:image" content="http://example.com/SwordOffer/20.png">
+<meta property="og:image" content="http://example.com/SwordOffer/67.png">
+<meta property="og:image" content="http://example.com/SwordOffer/59_1.png">
+<meta property="og:image" content="http://example.com/SwordOffer/59_2.png">
+<meta property="og:image" content="http://example.com/SwordOffer/37.png">
+<meta property="og:image" content="http://example.com/SwordOffer/38.png">
+<meta property="og:image" content="http://example.com/SwordOffer/19.png">
+<meta property="og:image" content="http://example.com/SwordOffer/49.png">
+<meta property="og:image" content="http://example.com/SwordOffer/60.png">
+<meta property="og:image" content="http://example.com/SwordOffer/51.png">
+<meta property="og:image" content="http://example.com/SwordOffer/14_2.png">
+<meta property="article:published_time" content="2022-04-30T07:49:33.902Z">
+<meta property="article:modified_time" content="2022-04-16T01:49:37.015Z">
 <meta property="article:author" content="zhaoxfan">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/SwordOffer/9.png">
 
 
 
@@ -115,13 +192,13 @@
 
 
 
-  <link rel="canonical" href="http://example.com/"/>
+  <link rel="canonical" href="http://example.com/2022/04/30/SwordOffer/"/>
 
 
 
 
 
-  <title>Hexo</title>
+  <title> | Hexo</title>
   
 
 
@@ -140,8 +217,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -234,9 +310,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -266,9 +342,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2022/04/30/SwordOffer/" itemprop="url">未命名</a></h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -349,9 +423,7 @@
       
 
       
-        
-          
-            <h2 id="9-用两个栈实现队列"><a href="#9-用两个栈实现队列" class="headerlink" title="9.用两个栈实现队列"></a>9.用两个栈实现队列</h2><p><img src="/SwordOffer/9.png" alt="image-20220316110237876"></p>
+        <h2 id="9-用两个栈实现队列"><a href="#9-用两个栈实现队列" class="headerlink" title="9.用两个栈实现队列"></a>9.用两个栈实现队列</h2><p><img src="/SwordOffer/9.png" alt="image-20220316110237876"></p>
 <blockquote>
 <p>思路：维护两个栈，第一个栈支持插入操作，第二个栈支持删除操作。</p>
 <p>在执行删除操作的时候我们首先看下第二个栈是否为空。如果为空，我们将第一个栈里的元素一个个弹出插入到第二个栈里，这样第二个栈里元素的顺序就是待删除的元素的顺序，要执行删除操作的时候我们直接弹出第二个栈的元素返回即可</p>
@@ -1217,8 +1289,6 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">cuttingRope</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(n &lt; <span class="number">4</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> n - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">long</span> <span class="variable">res</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(n &gt; <span class="number">4</span>)&#123;</span><br><span class="line">            res  = res * <span class="number">3</span> % <span class="number">1000000007</span>;</span><br><span class="line">            n -= <span class="number">3</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (<span class="type">int</span>) (res * n % <span class="number">1000000007</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-          
-        
       
     </div>
     
@@ -1235,841 +1305,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/cat.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2022/04/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-04-30T11:17:45+08:00">
-                2022-04-30
-              </time>
+              <a href="/2022/04/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
             
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><h2 id="HTTP-vs-HTTPS"><a href="#HTTP-vs-HTTPS" class="headerlink" title="HTTP vs HTTPS"></a>HTTP vs HTTPS</h2><h4 id="带有整数的公钥传输机制如下"><a href="#带有整数的公钥传输机制如下" class="headerlink" title="带有整数的公钥传输机制如下"></a>带有整数的公钥传输机制如下</h4><ol>
-<li>设有服务器S，客户端C，和第三方信赖机构CA</li>
-<li>S信任CA，CA是知道S公钥的，CA向S颁发证书。并附上 CA 私钥对消息摘要的加密签名。</li>
-<li>S 获得 CA 颁发的证书，将该证书传递给 C。</li>
-<li>C 获得 S 的证书，信任 CA 并知晓 CA 公钥，使用 CA 公钥对 S 证书的签名解密，同时对消息进行散列处理，得到摘要。比较摘要，验证S证书的真实性。</li>
-<li>如果 C 验证 S 证书是真实的，则信任 S 的公钥（在 S 证书中）。</li>
-</ol>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ul>
-<li>端口号：HTTP默认80，<code>HTTPS</code>默认443</li>
-<li>URL前缀：<code>http://</code>和<code>https://</code></li>
-<li>安全性和资源消耗：HTTP 协议运行在 TCP 之上，所有传输的内容都是明文，客户端和服务器端都无法验证对方的身份。<code>HTTPS</code> 是运行在 <code>SSL/TLS</code> 之上的 HTTP 协议，<code>SSL/TLS</code> 运行在 TCP 之上。所有传输的内容都经过加密，加密采用对称加密，但对称加密的密钥用服务器方的证书进行了非对称加密。所以说，HTTP安全性没有<code>HTTPS</code>高，但是<code>HTTPS</code>比HTTP耗费更多服务器资源。</li>
-</ul>
-<h2 id="HTTP-1-0-vs-HTTP-1-1"><a href="#HTTP-1-0-vs-HTTP-1-1" class="headerlink" title="HTTP 1.0 vs HTTP 1.1"></a>HTTP 1.0 vs HTTP 1.1</h2><ul>
-<li>响应状态码</li>
-<li>缓存处理</li>
-<li>连接方式</li>
-<li>Host头处理</li>
-<li>带宽优化</li>
-</ul>
-<h3 id="响应状态码"><a href="#响应状态码" class="headerlink" title="响应状态码"></a>响应状态码</h3><p>HTTP&#x2F;1.0仅定义了16种状态码。HTTP&#x2F;1.1中新加入了大量的状态码，光是错误响应状态码就新增了24种。</p>
-<h3 id="缓存处理"><a href="#缓存处理" class="headerlink" title="缓存处理"></a>缓存处理</h3><p>缓存技术通过避免用户与源服务器的频繁交互，节约了大量的网络带宽，降低了用户接收信息的延迟。</p>
-<h4 id="HTTP-x2F-1-0"><a href="#HTTP-x2F-1-0" class="headerlink" title="HTTP&#x2F;1.0"></a>HTTP&#x2F;1.0</h4><p>HTTP&#x2F;1.0提供的缓存机制非常简单。服务器端使用<code>Expires</code>标签来标志(时间)一个响应体，在<code>Expires</code>标志时间内的请求，都会获得该响应体缓存。服务器在初次返回给客户端的响应体中，有一个<code>Last-Modified</code>标签，该标签标记了被请求资源在服务器端的最后一次修改。在请求头中，使用<code>If-Modified-Since</code>标签，该标签标志一个时间，意为客户端向服务器进行问询：“该时间之前，我要请求的资源是否有被修改过？”通常情况下，请求头中的<code>If-Modified-Since</code>的值即为上一次获得该资源时，响应体中的<code>Last-Modified</code>的值。</p>
-<p>如果服务器接收到了请求头，并判断<code>If-Modified-Since</code>时间后，资源确实没有修改过，则返回给客户端一个<code>304 not modified</code>响应头，表示”缓冲可用，你从浏览器里拿吧！”。</p>
-<p>如果服务器判断<code>If-Modified-Since</code>时间后，资源被修改过，则返回给客户端一个<code>200 OK</code>的响应体，并附带全新的资源内容，表示”你要的我已经改过的，给你一份新的”。</p>
-<h4 id="HTTP-x2F-1-1"><a href="#HTTP-x2F-1-1" class="headerlink" title="HTTP&#x2F;1.1"></a>HTTP&#x2F;1.1</h4><p>HTTP&#x2F;1.1的缓存机制在HTTP&#x2F;1.0的基础上，大大增加了灵活性和扩展性。基本工作原理和HTTP&#x2F;1.0保持不变，而是增加了更多细致的特性。</p>
-<h3 id="连接方式"><a href="#连接方式" class="headerlink" title="连接方式"></a>连接方式</h3><p><strong>HTTP&#x2F;1.0 默认使用短连接</strong> ，也就是说，客户端和服务器每进行一次 HTTP 操作，就建立一次连接，任务结束就中断连接。当客户端浏览器访问的某个 HTML 或其他类型的 Web 页中包含有其他的 Web 资源（如 JavaScript 文件、图像文件、<code>CSS</code> 文件等），每遇到这样一个 Web 资源，浏览器就会重新建立一个TCP连接，这样就会导致有大量的“握手报文”和“挥手报文”占用了带宽。</p>
-<p><strong>为了解决 HTTP&#x2F;1.0 存在的资源浪费的问题， HTTP&#x2F;1.1 优化为默认长连接模式 。</strong> 采用长连接模式的请求报文会通知服务端：“我向你请求连接，并且连接成功建立后，请不要关闭”。因此，该TCP连接将持续打开，为后续的客户端-服务端的数据交互服务。也就是说在使用长连接的情况下，当一个网页打开完成后，客户端和服务器之间用于传输 HTTP 数据的 TCP 连接不会关闭，客户端再次访问这个服务器时，会继续使用这一条已经建立的连接。</p>
-<p>如果 TCP 连接一直保持的话也是对资源的浪费，因此，一些服务器软件（如 Apache）还会支持超时时间的时间。在超时时间之内没有新的请求达到，TCP 连接才会被关闭。</p>
-<p>有必要说明的是，HTTP&#x2F;1.0仍提供了长连接选项，即在请求头中加入<code>Connection: Keep-alive</code>。同样的，在HTTP&#x2F;1.1中，如果不希望使用长连接选项，也可以在请求头中加入<code>Connection: close</code>，这样会通知服务器端：“我不需要长连接，连接成功后即可关闭”。</p>
-<p><strong>HTTP 协议的长连接和短连接，实质上是 TCP 协议的长连接和短连接。</strong></p>
-<p><strong>实现长连接需要客户端和服务端都支持长连接。</strong></p>
-<h3 id="Host头处理"><a href="#Host头处理" class="headerlink" title="Host头处理"></a>Host头处理</h3><h4 id="范围请求"><a href="#范围请求" class="headerlink" title="范围请求"></a>范围请求</h4><p>HTTP&#x2F;1.1引入了范围请求（range request）机制，以避免带宽的浪费。当客户端想请求一个文件的一部分，或者需要继续下载一个已经下载了部分但被终止的文件，HTTP&#x2F;1.1可以在请求中加入<code>Range</code>头部，以请求（并只能请求字节型数据）数据的一部分。服务器端可以忽略<code>Range</code>头部，也可以返回若干<code>Range</code>响应。</p>
-<p>如果一个响应包含部分数据的话，那么将带有<code>206 (Partial Content)</code>状态码。该状态码的意义在于避免了HTTP&#x2F;1.0代理缓存错误地把该响应认为是一个完整的数据响应，从而把他当作为一个请求的响应缓存。</p>
-<p>在范围响应中，<code>Content-Range</code>头部标志指示出了该数据块的偏移量和数据块的长度。</p>
-<h4 id="状态码100"><a href="#状态码100" class="headerlink" title="状态码100"></a>状态码100</h4><p>HTTP&#x2F;1.1中新加入了状态码<code>100</code>。该状态码的使用场景为，存在某些较大的文件请求，服务器可能不愿意响应这种请求，此时状态码<code>100</code>可以作为指示请求是否会被正常响应</p>
-<h3 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h3><p>许多格式的数据在传输时都会做预压缩处理。数据的压缩可以大幅优化带宽的利用。然而，HTTP&#x2F;1.0对数据压缩的选项提供的不多，不支持压缩细节的选择，也无法区分端到端（end-to-end）压缩或者是逐跳（hop-by-hop）压缩。</p>
-<p>HTTP&#x2F;1.1则对内容编码（content-codings）和传输编码（transfer-codings）做了区分。内容编码总是端到端的，传输编码总是逐跳的。</p>
-<p>HTTP&#x2F;1.0包含了<code>Content-Encoding</code>头部，对消息进行端到端编码。HTTP&#x2F;1.1加入了<code>Transfer-Encoding</code>头部，可以对消息进行逐跳传输编码。HTTP&#x2F;1.1还加入了<code>Accept-Encoding</code>头部，是客户端用来指示他能处理什么样的内容编码。</p>
-<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><ol>
-<li>连接方式：HTTP 1.0为短连接，<code>HTTP1.1</code>支持长连接</li>
-<li>连接响应码：HTTP&#x2F;1.1中新加入了大量的状态码</li>
-<li>缓存处理：在 <code>HTTP1.0</code> 中主要使用 header 里的 If-Modified-Since,Expires 来做为缓存判断的标准，<code>HTTP1.1</code> 则引入了更多的缓存控制策略例如 Entity tag，If-Unmodified-Since, If-Match, If-None-Match 等更多可供选择的缓存头来控制缓存策略。</li>
-<li>带宽优化及网络连接的使用：<code>HTTP1.0</code> 中，存在一些浪费带宽的现象，例如客户端只是需要某个对象的一部分，而服务器却将整个对象送过来了，并且不支持断点续传功能，<code>HTTP1.1</code> 则在请求头引入了 range 头域，它允许只请求资源的某个部分，即返回码是 206（Partial Content），这样就方便了开发者自由的选择以便于充分利用带宽和连接。</li>
-<li>Host头处理：HTTP&#x2F;1.1在请求头中加入了<code>Host</code>字段。</li>
-</ol>
-<h2 id="常见知识点-amp-面试题"><a href="#常见知识点-amp-面试题" class="headerlink" title="常见知识点&amp;面试题"></a>常见知识点&amp;面试题</h2><h3 id="应用层协议"><a href="#应用层协议" class="headerlink" title="应用层协议"></a>应用层协议</h3><h4 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h4><p>主要是为Web浏览器与Web服务器之间的通信而设计的。HTTP协议是基于TCP协议，发送HTTP请求之前首先要建立TCP连接也就是要经历3次握手。目前使用的 HTTP 协议大部分都是 1.1。在 1.1 的协议里面，默认是开启了 Keep-Alive 的，这样的话建立的连接就可以在多次请求中被复用了。</p>
-<p>另外， HTTP 协议是”无状态”的协议，它无法记录客户端用户的状态，一般我们都是通过 Session 来记录客户端用户的状态。</p>
-<h4 id="SMTP"><a href="#SMTP" class="headerlink" title="SMTP"></a>SMTP</h4><p>简单邮件传输协议，基于TCP协议，用来发送电子邮件</p>
-<blockquote>
-<p>接受邮件的协议是POP3协议</p>
-</blockquote>
-<h5 id="电子邮件的发送过程"><a href="#电子邮件的发送过程" class="headerlink" title="电子邮件的发送过程"></a>电子邮件的发送过程</h5><ol>
-<li>通过 <strong>SMTP</strong> 协议，我将我写好的邮件交给163邮箱服务器</li>
-<li>163邮箱服务器发现我发送的邮箱是qq邮箱，然后它使用 SMTP协议将我的邮件转发到 qq邮箱服务器</li>
-<li>qq邮箱服务器接收邮件之后就通知邮箱用户来收邮件，然后用户就通过 <strong>POP3&#x2F;IMAP</strong> 协议将邮件取出</li>
-</ol>
-<h5 id="如何判断邮箱是否真正存在"><a href="#如何判断邮箱是否真正存在" class="headerlink" title="如何判断邮箱是否真正存在"></a>如何判断邮箱是否真正存在</h5><p>我们可以利用 SMTP 协议来检测</p>
-<ol>
-<li>查找邮箱域名对应的 SMTP 服务器地址</li>
-<li>尝试与服务器建立连接</li>
-<li>连接成功后尝试向需要验证的邮箱发送邮件</li>
-<li>根据返回结果判定邮箱地址的真实性</li>
-</ol>
-<h4 id="POP3-x2F-IMAP"><a href="#POP3-x2F-IMAP" class="headerlink" title="POP3&#x2F;IMAP"></a>POP3&#x2F;IMAP</h4><p><strong>两者都是负责邮件接收的协议</strong>。另外，需要注意不要将这两者和 SMTP 协议搞混淆了。<strong>SMTP 协议只负责邮件的发送，真正负责接收的协议是POP3&#x2F;IMAP。</strong></p>
-<p>IMAP 协议相比于POP3更新一点，为用户提供的可选功能也更多一点,几乎所有现代电子邮件客户端和服务器都支持IMAP。大部分网络邮件服务提供商都支持POP3和IMAP。</p>
-<h4 id="FTP"><a href="#FTP" class="headerlink" title="FTP"></a>FTP</h4><p>主要提供文件传输服务，基于 TCP 实现可靠的传输。使用 FTP 传输文件的好处是可以屏蔽操作系统和文件存储方式。</p>
-<p>FTP 是基于客户—服务器（C&#x2F;S）模型而设计的，在客户端与 FTP 服务器之间建立两个连接。如果我们要基于 FTP 协议开发一个文件传输的软件的话，首先需要搞清楚 FTP 的原理。</p>
-<blockquote>
-<p>FTP 的独特的优势同时也是与其它客户服务器程序最大的不同点就在于它在两台通信的主机之间使用了两条 TCP 连接（其它客户服务器应用程序一般只有一条 TCP 连接）：</p>
-<ol>
-<li>控制连接：用于传送控制信息（命令和响应）</li>
-<li>数据连接：用于数据传送</li>
-</ol>
-<p>这种将命令和数据分开传送的思想大大提高了 FTP 的效率</p>
-</blockquote>
-<h4 id="Telnet"><a href="#Telnet" class="headerlink" title="Telnet"></a>Telnet</h4><p>通过一个终端登陆到其他服务器，建立在可靠的传输协议 TCP 之上。Telnet 协议的最大缺点之一是所有数据（包括用户名和密码）均以明文形式发送，这有潜在的安全风险。这就是为什么如今很少使用Telnet并被一种称为SSH的非常安全的协议所取代的主要原因</p>
-<h4 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h4><p>是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用 SSH 协议可以有效防止远程管理过程中的信息泄露问题。SSH 建立在可靠的传输协议 TCP 之上</p>
-<p><strong>Telnet 和 SSH 之间的主要区别在于 SSH 协议会对传输的数据进行加密保证数据安全性。</strong></p>
-<h3 id="TCP三次握手和四次挥手"><a href="#TCP三次握手和四次挥手" class="headerlink" title="TCP三次握手和四次挥手"></a>TCP三次握手和四次挥手</h3><p>为了准确无误地把数据送达目标处，TCP 协议采用了三次握手策略</p>
-<p><img src="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.png" alt="TCP三次握手"></p>
-<ul>
-<li>客户端–发送带有 SYN 标志的数据包–一次握手–服务端</li>
-<li>服务端–发送带有 SYN&#x2F;ACK 标志的数据包–二次握手–客户端</li>
-<li>客户端–发送带有带有 ACK 标志的数据包–三次握手–服务端</li>
-</ul>
-<h4 id="为什么要三次握手"><a href="#为什么要三次握手" class="headerlink" title="为什么要三次握手"></a>为什么要三次握手</h4><p><strong>三次握手的目的是建立可靠的通信信道，说到通讯，简单来说就是数据的发送与接收，而三次握手最主要的目的就是双方确认自己与对方的发送与接收是正常的。</strong></p>
-<p>第一次握手：Client 什么都不能确认；Server 确认了对方发送正常，自己接收正常</p>
-<p>第二次握手：Client 确认了：自己发送、接收正常，对方发送、接收正常；Server 确认了：对方发送正常，自己接收正常</p>
-<p>第三次握手：Client 确认了：自己发送、接收正常，对方发送、接收正常；Server 确认了：自己发送、接收正常，对方发送、接收正常</p>
-<h4 id="第二次握手传回ACK，为什么还要传回SYN"><a href="#第二次握手传回ACK，为什么还要传回SYN" class="headerlink" title="第二次握手传回ACK，为什么还要传回SYN"></a>第二次握手传回<code>ACK</code>，为什么还要传回<code>SYN</code></h4><p>接收端传回发送端所发送的 <code>ACK</code> 是为了告诉客户端，我接收到的信息确实就是你所发送的信号了，这表明从客户端到服务端的通信是正常的。而回传 SYN 则是为了建立并确认从服务端到客户端的通信。</p>
-<h4 id="为什么要四次挥手"><a href="#为什么要四次挥手" class="headerlink" title="为什么要四次挥手"></a>为什么要四次挥手</h4><p><img src="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/TCP%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B.png" alt="TCP四次挥手"></p>
-<ul>
-<li>客户端-发送一个 FIN，用来关闭客户端到服务器的数据传送</li>
-<li>服务器-收到这个 FIN，它发回一 个 <code>ACK</code>，确认序号为收到的序号加 1 。和 SYN 一样，一个 FIN 将占用一个序号</li>
-<li>服务器-关闭与客户端的连接，发送一个 FIN 给客户端</li>
-<li>客户端-发回 <code>ACK</code> 报文确认，并将确认序号设置为收到序号加 1</li>
-</ul>
-<p>任何一方都可以在数据传送结束后发出连接释放的通知，待对方确认后进入半关闭状态。当另一方也没有数据再发送的时候，则发出连接释放通知，对方确认后就完全关闭了 TCP 连接。</p>
-<h3 id="TCP，UDP协议"><a href="#TCP，UDP协议" class="headerlink" title="TCP，UDP协议"></a>TCP，UDP协议</h3><p><img src="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/tcp-vs-udp.jpg" alt="TCP、UDP协议的区别"></p>
-<p>UDP 在传送数据之前不需要先建立连接，远地主机在收到 UDP 报文后，不需要给出任何确认。虽然 UDP 不提供可靠交付，但在某些情况下 UDP 却是一种最有效的工作方式（一般用于即时通信）</p>
-<p>TCP 提供面向连接的服务。在传送数据之前必须先建立连接，数据传送结束后要释放连接。 TCP 不提供广播或多播服务。由于 TCP 要提供可靠的，面向连接的传输服务（TCP 的可靠体现在 TCP 在传递数据之前，会有三次握手来建立连接，而且在数据传递时，有确认、窗口、重传、拥塞控制机制，在数据传完后，还会断开连接用来节约系统资源），这难以避免增加了许多开销，如确认，流量控制，计时器以及连接管理等。这不仅使协议数据单元的首部增大很多，还要占用许多处理机资源。TCP 一般用于文件传输、发送和接收邮件、远程登录等场景。</p>
-<h3 id="TCP如何保证可靠传输"><a href="#TCP如何保证可靠传输" class="headerlink" title="TCP如何保证可靠传输"></a>TCP如何保证可靠传输</h3><ol>
-<li>应用数据被分割成 TCP 认为最适合发送的数据块</li>
-<li>TCP 给发送的每一个包进行编号，接收方对数据包进行排序，把有序数据传送给应用层</li>
-<li><strong>校验和：</strong> TCP 将保持它首部和数据的检验和。这是一个端到端的检验和，目的是检测数据在传输过程中的任何变化。如果收到段的检验和有差错，TCP 将丢弃这个报文段和不确认收到此报文段。</li>
-<li>TCP 的接收端会丢弃重复的数据</li>
-<li><strong>流量控制：</strong> TCP 连接的每一方都有固定大小的缓冲空间，TCP 的接收端只允许发送端发送接收端缓冲区能接纳的数据。当接收方来不及处理发送方的数据，能提示发送方降低发送的速率，防止包丢失。TCP 使用的流量控制协议是可变大小的滑动窗口协议。 （TCP 利用滑动窗口实现流量控制）</li>
-<li><strong>拥塞控制：</strong> 当网络拥塞时，减少数据的发送</li>
-<li><strong>ARQ 协议：</strong> 也是为了实现可靠传输的，它的基本原理就是每发完一个分组就停止发送，等待对方确认。在收到确认后再发下一个分组。</li>
-<li><strong>超时重传：</strong> 当 TCP 发出一个段后，它启动一个定时器，等待目的端确认收到这个报文段。如果不能及时收到一个确认，将重发这个报文段</li>
-</ol>
-<h4 id="ARQ协议"><a href="#ARQ协议" class="headerlink" title="ARQ协议"></a>ARQ协议</h4><p><strong>自动重传请求</strong>（Automatic Repeat-reQuest，ARQ）是 OSI 模型中数据链路层和传输层的错误纠正协议之一。它通过使用确认和超时这两个机制，在不可靠服务的基础上实现可靠的信息传输。如果发送方在发送后一段时间之内没有收到确认帧，它通常会重新发送。ARQ 包括停止等待 ARQ 协议和连续 ARQ 协议。</p>
-<h5 id="停止等待ARQ协议"><a href="#停止等待ARQ协议" class="headerlink" title="停止等待ARQ协议"></a>停止等待ARQ协议</h5><p>停止等待协议是为了实现可靠传输的，它的基本原理就是每发完一个分组就停止发送，等待对方确认（回复 ACK）。如果过了一段时间（超时时间后），还是没有收到 ACK 确认，说明没有发送成功，需要重新发送，直到收到确认后再发下一个分组。</p>
-<p>在停止等待协议中，若接收方收到重复分组，就丢弃该分组，但同时还要发送确认。</p>
-<ul>
-<li>优点：简单</li>
-<li>缺点：信道利用率低，等待时间长</li>
-</ul>
-<h5 id="连续ARQ协议"><a href="#连续ARQ协议" class="headerlink" title="连续ARQ协议"></a>连续ARQ协议</h5><p>连续 ARQ 协议可提高信道利用率。发送方维持一个发送窗口，凡位于发送窗口内的分组可以连续发送出去，而不需要等待对方确认。接收方一般采用累积确认，对按序到达的最后一个分组发送确认，表明到这个分组为止的所有分组都已经正确收到了。</p>
-<ul>
-<li>优点：信道利用率高，容易实现，即使确定丢失，也不必重传</li>
-<li>缺点：不能向发送方反映出接收方已经正确收到的所有分组的信息。 比如：发送方发送了 5 条 消息，中间第三条丢失（3 号），这时接收方只能对前两个发送确认。发送方无法知道后三个分组的下落，而只好把后三个全部重传一次。这也叫 Go-Back-N（回退 N），表示需要退回来重传已经发送过的 N 个消息</li>
-</ul>
-<h4 id="滑动窗口和流量控制"><a href="#滑动窗口和流量控制" class="headerlink" title="滑动窗口和流量控制"></a>滑动窗口和流量控制</h4><p><strong>TCP 利用滑动窗口实现流量控制。流量控制是为了控制发送方发送速率，保证接收方来得及接收。</strong> 接收方发送的确认报文中的窗口字段可以用来控制发送方窗口大小，从而影响发送方的发送速率。将窗口字段设置为 0，则发送方不能发送数据。</p>
-<h4 id="拥塞控制"><a href="#拥塞控制" class="headerlink" title="拥塞控制"></a>拥塞控制</h4><p>在某段时间，若对网络中某一资源的需求超过了该资源所能提供的可用部分，网络的性能就要变坏。这种情况就叫拥塞。拥塞控制就是为了防止过多的数据注入到网络中，这样就可以使网络中的路由器或链路不致过载。拥塞控制所要做的都有一个前提，就是网络能够承受现有的网络负荷。拥塞控制是一个全局性的过程，涉及到所有的主机，所有的路由器，以及与降低网络传输性能有关的所有因素。相反，流量控制往往是点对点通信量的控制，是个端到端的问题。流量控制所要做到的就是抑制发送端发送数据的速率，以便使接收端来得及接收。</p>
-<p>为了进行拥塞控制，TCP 发送方要维持一个 <strong>拥塞窗口(cwnd)</strong> 的状态变量。拥塞控制窗口的大小取决于网络的拥塞程度，并且动态变化。发送方让自己的发送窗口取为拥塞窗口和接收方的接受窗口中较小的一个。</p>
-<p>TCP 的拥塞控制采用了四种算法，即 <strong>慢开始</strong> 、 <strong>拥塞避免</strong> 、<strong>快重传</strong> 和 <strong>快恢复</strong>。在网络层也可以使路由器采用适当的分组丢弃策略（如主动队列管理 AQM），以减少网络拥塞的发生。</p>
-<h3 id="打开一个网页，整个过程会使用哪些协议"><a href="#打开一个网页，整个过程会使用哪些协议" class="headerlink" title="打开一个网页，整个过程会使用哪些协议"></a>打开一个网页，整个过程会使用哪些协议</h3><p><img src="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/url%E8%BE%93%E5%85%A5%E5%88%B0%E5%B1%95%E7%A4%BA%E5%87%BA%E6%9D%A5%E7%9A%84%E8%BF%87%E7%A8%8B.jpg" alt="img"></p>
-<ol>
-<li>DNS解析</li>
-<li>TCP连接</li>
-<li>发送HTTP请求</li>
-<li>服务器处理请求返回HTTP报文</li>
-<li>浏览器解析渲染页面</li>
-<li>连接结束</li>
-</ol>
-<h3 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h3><p><img src="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/%E7%8A%B6%E6%80%81%E7%A0%81.png" alt="状态码"></p>
-<h3 id="HTTP如何保存用户状态"><a href="#HTTP如何保存用户状态" class="headerlink" title="HTTP如何保存用户状态"></a>HTTP如何保存用户状态</h3><p>HTTP 是一种不保存状态，即无状态（stateless）协议。也就是说 HTTP 协议自身不对请求和响应之间的通信状态进行保存。那么我们保存用户状态呢？Session 机制的存在就是为了解决这个问题，Session 的主要作用就是通过服务端记录用户的状态。典型的场景是购物车，当你要添加商品到购物车的时候，系统不知道是哪个用户操作的，因为 HTTP 协议是无状态的。服务端给特定的用户创建特定的 Session 之后就可以标识这个用户并且跟踪这个用户了（一般情况下，服务器会在一定时间内保存这个 Session，过了时间限制，就会销毁这个 Session）。</p>
-<p>在服务端保存 Session 的方法很多，最常用的就是内存和数据库(比如是使用内存数据库 redis 保存)。既然 Session 存放在服务器端，那么我们如何实现 Session 跟踪呢？大部分情况下，我们都是通过在 Cookie 中附加一个 Session ID 来方式来跟踪。</p>
-<p>最常用的就是利用 URL 重写把 Session ID 直接附加在 URL 路径的后面。</p>
-<h3 id="Cookie的作用，和Session的区别"><a href="#Cookie的作用，和Session的区别" class="headerlink" title="Cookie的作用，和Session的区别"></a>Cookie的作用，和Session的区别</h3><p>Cookie 和 Session 都是用来跟踪浏览器用户身份的会话方式，但是两者的应用场景不太一样</p>
-<p><strong>Cookie 一般用来保存用户信息</strong> 比如 ① 我们在 Cookie 中保存已经登录过的用户信息，下次访问网站的时候页面可以自动帮你把登录的一些基本信息给填了；② 一般的网站都会有保持登录，也就是说下次你再访问网站的时候就不需要重新登录了，这是因为用户登录的时候我们可以存放了一个 Token 在 Cookie 中，下次登录的时候只需要根据 Token 值来查找用户即可(为了安全考虑，重新登录一般要将 Token 重写)；③ 登录一次网站后访问网站其他页面不需要重新登录。</p>
-<p><strong>Session 的主要作用就是通过服务端记录用户的状态。</strong> 典型的场景是购物车，当你要添加商品到购物车的时候，系统不知道是哪个用户操作的，因为 HTTP 协议是无状态的。服务端给特定的用户创建特定的 Session 之后就可以标识这个用户并且跟踪这个用户了。</p>
-<p>Cookie 数据保存在客户端(浏览器端)，Session 数据保存在服务器端。</p>
-<p>Cookie 存储在客户端中，而 Session 存储在服务器上，相对来说 Session 安全性更高。如果要在 Cookie 中存储一些敏感信息，不要直接写入 Cookie 中，最好能将 Cookie 信息加密，然后使用到的时候再去服务器端解密。</p>
-<h3 id="URI和URL的区别"><a href="#URI和URL的区别" class="headerlink" title="URI和URL的区别"></a>URI和URL的区别</h3><ul>
-<li>URI(Uniform Resource Identifier) 是统一资源标志符，可以唯一标识一个资源</li>
-<li>URL(Uniform Resource Locator) 是统一资源定位符，可以提供该资源的路径。它是一种具体的 URI，即 URL 可以用来标识一个资源，而且还指明了如何 locate 这个资源。</li>
-</ul>
-<p>URI 的作用像身份证号一样，URL 的作用更像家庭住址一样。URL 是一种具体的 URI，它不仅唯一标识资源，而且还提供了定位该资源的信息。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/20/%E4%B8%AD%E5%9B%BD%E5%8E%86%E4%BB%A3%E6%94%BF%E6%B2%BB%E5%BE%97%E5%A4%B1-%E9%92%B1%E7%A9%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/cat.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2022/03/20/%E4%B8%AD%E5%9B%BD%E5%8E%86%E4%BB%A3%E6%94%BF%E6%B2%BB%E5%BE%97%E5%A4%B1-%E9%92%B1%E7%A9%86/" itemprop="url">《中国历代政治得失-钱穆》</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-03-20T10:41:40+08:00">
-                2022-03-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%8E%86%E5%8F%B2/" itemprop="url" rel="index">
-                    <span itemprop="name">历史</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>《中国历代政治得失》为作者的专题演讲合集，分别就中国汉、唐、宋、明、清五代的政府组织、百官职权、考试监察、财经赋税、兵役义务等种种政治制度作了提要勾玄的概观与比照，叙述因革演变，指陈利害得失。既高屋建瓴地总括了中国历史与政治的精要大义，又点明了近现代国人对传统文化和精神的种种误解。言简意赅，语重心长，实不失为一部简明的“中国政治制度史”。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2022/03/20/%E4%B8%AD%E5%9B%BD%E5%8E%86%E4%BB%A3%E6%94%BF%E6%B2%BB%E5%BE%97%E5%A4%B1-%E9%92%B1%E7%A9%86/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/04/MyBatis-Plus/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/cat.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2022/01/04/MyBatis-Plus/" itemprop="url">MyBatis-Plus</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-01-04T00:00:00+08:00">
-                2022-01-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="课程介绍"><a href="#课程介绍" class="headerlink" title="课程介绍"></a>课程介绍</h2><ul>
-<li>了解MyBatis-Plus</li>
-<li>整合MyBatis-Plus</li>
-<li>通用CRUD</li>
-<li>MyBatis-Plus的配置</li>
-<li>条件构造器</li>
-<li>ActiveRecord</li>
-<li>Mybatis-Plus的插件</li>
-<li>Sql注入器实现自定义全局操作 </li>
-<li>自动填充功能</li>
-<li>逻辑删除</li>
-<li>通用枚举</li>
-<li>代码生成器</li>
-<li>MybatisX快速开发插件</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2022/01/04/MyBatis-Plus/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/01/%E9%9C%80%E8%A6%81%E5%BB%B6%E8%BF%9F%E6%BB%A1%E8%B6%B3%E6%84%9F%E5%90%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/cat.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2022/01/01/%E9%9C%80%E8%A6%81%E5%BB%B6%E8%BF%9F%E6%BB%A1%E8%B6%B3%E6%84%9F%E5%90%97/" itemprop="url">需要延迟满足感吗?</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-01-01T00:00:00+08:00">
-                2022-01-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%BF%83%E7%90%86%E5%AD%A6/" itemprop="url" rel="index">
-                    <span itemprop="name">心理学</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  
-                </span>
-              
-            </div>
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h2 id="我们需要延迟满足感吗"><a href="#我们需要延迟满足感吗" class="headerlink" title="我们需要延迟满足感吗"></a>我们需要延迟满足感吗</h2><h3 id="延迟满足"><a href="#延迟满足" class="headerlink" title="延迟满足"></a>延迟满足</h3><p>1998年，心理学巨匠<code>Baumeister</code>提出了&#x3D;&#x3D;自我损耗&#x3D;&#x3D;理论。他认为：&#x3D;&#x3D;延迟满足的本质，就是一个人的意志力&#x3D;&#x3D;。意志力强的人，就更容易抵抗即时的诱惑，去做更加长期的事情。</p>
-<p>进一步，<code>Baumeister</code>的自我损耗理论还认为：</p>
-<ol>
-<li>意志力是一种心理能量，你每使用一点，它就会消耗一点</li>
-<li>它的生理基础是糖。一杯加了糖的柠檬水，就能快速有效补充意志力</li>
-<li>它就像肌肉一样，可以通过锻炼来加强。经常训练它，就可以提高意志力</li>
-</ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2022/01/01/%E9%9C%80%E8%A6%81%E5%BB%B6%E8%BF%9F%E6%BB%A1%E8%B6%B3%E6%84%9F%E5%90%97/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -2079,915 +1336,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/01/Spring-note/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/cat.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2022/01/01/Spring-note/" itemprop="url">SSM笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-01-01T00:00:00+08:00">
-                2022-01-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaEE/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaEE</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Spring简介"><a href="#Spring简介" class="headerlink" title="Spring简介"></a>Spring简介</h2><h3 id="Spring是什么"><a href="#Spring是什么" class="headerlink" title="Spring是什么"></a>Spring是什么</h3><p>Spring是分层的Java SE&#x2F;EE应用全栈轻量级开源框架，以IoC和AOP为内核。</p>
-<p>提供了展现层SpringMVC和持久层Spring JDBCTemplate以及业务层事务管理等众多的企业级应用技术，还整合开源世界众多著名的第三方框架和类库，逐渐成为使用最多的Java EE企业应用开源框架。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2022/01/01/Spring-note/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/26/Maven-note/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/cat.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/12/26/Maven-note/" itemprop="url">Maven-note</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-12-26T00:00:00+08:00">
-                2021-12-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaEE/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaEE</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="什么是Maven"><a href="#什么是Maven" class="headerlink" title="什么是Maven"></a>什么是Maven</h2><p>目前无论使用IDEA还是Eclipse等其他&#96;&#96;IDE&#96;，使用里面ANT工具。ANT工具帮助我们进行编译，打包运行等工作</p>
-<p>Apache基于ANT进行了升级，研发出了全新的自动化构建工具Maven</p>
-<p>Maven是Apache的一款开源的项目管理工具</p>
-<p>以后无论是普通<code>javase</code>项目还是<code>javaee</code>项目，都使用Maven创建</p>
-<p>Maven使用项目对象模型（<code>POM</code>）的概念，可以通过一小段描述信息来管理项目的构建，报告和文档的软件项目管理工具。在Maven中每个项目都相当于是一个对象，对象（项目）和对象（项目）之间是有关系的。关系包含了：依赖、继承、聚合，实现Maven项目可以更加方便的实现导jar包、拆分项目等效果。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/12/26/Maven-note/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/23/MySQL-note/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/cat.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/12/23/MySQL-note/" itemprop="url">MySQL语法和规范</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-12-23T00:00:00+08:00">
-                2021-12-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/MySQL/" itemprop="url" rel="index">
-                    <span itemprop="name">MySQL</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="MySQL语法"><a href="#MySQL语法" class="headerlink" title="MySQL语法"></a>MySQL语法</h2><h3 id="语句及语法的约定"><a href="#语句及语法的约定" class="headerlink" title="语句及语法的约定"></a>语句及语法的约定</h3><ul>
-<li>| 符号用来指出几个选择中的一个，因此，NULL|NOT NULL表示或者给出NULL或者给出NOT NULL</li>
-<li>包含在方括号中的关键字或子句（如[like this]）是可选的</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/12/23/MySQL-note/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/15/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/cat.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/12/15/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/" itemprop="url">Java多线程及线程安全</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-12-15T00:00:00+08:00">
-                2021-12-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaSE/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaSE</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><ol>
-<li>基本概念</li>
-<li>线程的创建和使用</li>
-<li>线程的生命周期</li>
-<li>线程的同步</li>
-<li>线程的通信</li>
-</ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/12/15/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/15/JavaSE-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%863/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/cat.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/12/15/JavaSE-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%863/" itemprop="url">JavaSE-基础知识(三)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-12-15T00:00:00+08:00">
-                2021-12-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaSE/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaSE</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><p>JDK5中引入的一个新特性，允许在定义类和接口的时候使用类型参数</p>
-<p>声明的类型参数在使用时用具体的类型来替换。泛型最主要的应用是在JDK5中的新集合类框架中</p>
-<p>泛型最大的好处是可以提高代码的复用性。以List接口为例，可以将String、Integer等类型放入List中，如不用泛型，存放String类型要写一个List接口， 存放Integer要写另外⼀个List接口， 泛型可以很好的解决这个问题。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/12/15/JavaSE-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%863/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&gt;</a>
-  </nav>
-
 
 
           </div>
@@ -2995,6 +1348,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -3015,8 +1372,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -3096,6 +1462,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97"><span class="nav-number">1.</span> <span class="nav-text">9.用两个栈实现队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#30-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88"><span class="nav-number">2.</span> <span class="nav-text">30.包含min函数的栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8"><span class="nav-number">3.</span> <span class="nav-text">6.从尾到头打印链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#24-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8"><span class="nav-number">4.</span> <span class="nav-text">24.反转链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#35-%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6"><span class="nav-number">5.</span> <span class="nav-text">35.复杂链表的复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC"><span class="nav-number">6.</span> <span class="nav-text">5.替换空格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#58-%E5%B7%A6%E6%97%8B%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">7.</span> <span class="nav-text">58.左旋转字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97"><span class="nav-number">8.</span> <span class="nav-text">3.数组中重复的数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#53-%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E6%95%B0%E5%AD%97"><span class="nav-number">9.</span> <span class="nav-text">53.在排序数组中查找数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#53-0-n-1%E4%B8%AD%E7%BC%BA%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97"><span class="nav-number">10.</span> <span class="nav-text">53.0~n-1中缺失的数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE"><span class="nav-number">11.</span> <span class="nav-text">4.二维数组中的查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97"><span class="nav-number">12.</span> <span class="nav-text">11.旋转数组的最小数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#50-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6"><span class="nav-number">13.</span> <span class="nav-text">50.第一个只出现一次的字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#32-1-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">14.</span> <span class="nav-text">32_1.从上到下打印二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#32-2-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">15.</span> <span class="nav-text">32_2.从上到下打印二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#32-3-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">16.</span> <span class="nav-text">32_3.从上到下打印二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#26-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84"><span class="nav-number">17.</span> <span class="nav-text">26.树的子结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#27-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%95%9C%E5%83%8F"><span class="nav-number">18.</span> <span class="nav-text">27.二叉树的镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#28-%E5%AF%B9%E7%A7%B0%E7%9A%84%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">19.</span> <span class="nav-text">28.对称的二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-1-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97"><span class="nav-number">20.</span> <span class="nav-text">10_1.斐波那契数列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-2-%E9%9D%92%E8%9B%99%E8%B7%B3%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%98"><span class="nav-number">21.</span> <span class="nav-text">10_2.青蛙跳台阶问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#63-%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E5%A4%A7%E5%88%A9%E6%B6%A6"><span class="nav-number">22.</span> <span class="nav-text">63.股票的最大利润</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#42-%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C"><span class="nav-number">23.</span> <span class="nav-text">42.连续子数组的最大和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#47-%E7%A4%BC%E7%89%A9%E7%9A%84%E6%9C%80%E5%A4%A7%E4%BB%B7%E5%80%BC"><span class="nav-number">24.</span> <span class="nav-text">47.礼物的最大价值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#46-%E6%8A%8A%E6%95%B0%E5%AD%97%E7%BF%BB%E8%AF%91%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">25.</span> <span class="nav-text">46. 把数字翻译成字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#48-%E6%9C%80%E9%95%BF%E4%B8%8D%E5%90%AB%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">26.</span> <span class="nav-text">48.最长不含重复字符的子字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#18-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E8%8A%82%E7%82%B9"><span class="nav-number">27.</span> <span class="nav-text">18.删除链表的节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E8%8A%82%E7%82%B9"><span class="nav-number">28.</span> <span class="nav-text">22.链表中倒数第k个节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#25-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%8E%92%E5%BA%8F%E7%9A%84%E9%93%BE%E8%A1%A8"><span class="nav-number">29.</span> <span class="nav-text">25.合并两个排序的链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#52-%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%AC%E5%85%B1%E8%8A%82%E7%82%B9"><span class="nav-number">30.</span> <span class="nav-text">52.两个链表的第一个公共节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#21-%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E9%A1%BA%E5%BA%8F%E4%BD%BF%E5%A5%87%E6%95%B0%E4%BD%8D%E4%BA%8E%E5%81%B6%E6%95%B0%E5%89%8D%E9%9D%A2"><span class="nav-number">31.</span> <span class="nav-text">21.调整数组顺序使奇数位于偶数前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#57-%E5%92%8C%E4%B8%BAs%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%95%B0%E5%AD%97"><span class="nav-number">32.</span> <span class="nav-text">57.和为s的两个数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#58-1-%E7%BF%BB%E8%BD%AC%E5%8D%95%E8%AF%8D%E9%A1%BA%E5%BA%8F"><span class="nav-number">33.</span> <span class="nav-text">58_1.翻转单词顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84"><span class="nav-number">34.</span> <span class="nav-text">12.矩阵中的路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4"><span class="nav-number">35.</span> <span class="nav-text">13.机器人的运动范围</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#34-%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E5%92%8C%E4%B8%BA%E6%9F%90%E4%B8%80%E5%80%BC%E7%9A%84%E8%B7%AF%E5%BE%84"><span class="nav-number">36.</span> <span class="nav-text">34.二叉树中和为某一值的路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#36-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%8E%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8"><span class="nav-number">37.</span> <span class="nav-text">36.二叉搜索树与双向链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#54-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E7%AC%ACk%E5%A4%A7%E8%8A%82%E7%82%B9"><span class="nav-number">38.</span> <span class="nav-text">54.二叉搜索树的第k大节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#45-%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0"><span class="nav-number">39.</span> <span class="nav-text">45.把数组排成最小的数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#61-%E6%89%91%E5%85%8B%E7%89%8C%E4%B8%AD%E7%9A%84%E9%A1%BA%E5%AD%90"><span class="nav-number">40.</span> <span class="nav-text">61.扑克牌中的顺子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#40-%E6%9C%80%E5%B0%8F%E7%9A%84k%E4%B8%AA%E6%95%B0"><span class="nav-number">41.</span> <span class="nav-text">40.最小的k个数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#41-%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0"><span class="nav-number">42.</span> <span class="nav-text">41.数据流中的中位数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#55-1-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6"><span class="nav-number">43.</span> <span class="nav-text">55_1.二叉树的深度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#55-2-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">44.</span> <span class="nav-text">55_2.平衡二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#64-%E6%B1%821-2-%E2%80%A6-n"><span class="nav-number">45.</span> <span class="nav-text">64.求1+2+…+n</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#68-1-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88"><span class="nav-number">46.</span> <span class="nav-text">68_1.二叉搜索树的最近公共祖先</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#68-2-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88"><span class="nav-number">47.</span> <span class="nav-text">68_2.二叉树的最近公共祖先</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">48.</span> <span class="nav-text">7.重建二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-%E6%95%B0%E5%80%BC%E7%9A%84%E6%95%B4%E6%95%B0%E6%AC%A1%E6%96%B9"><span class="nav-number">49.</span> <span class="nav-text">16.数值的整数次方</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#33-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97"><span class="nav-number">50.</span> <span class="nav-text">33.二叉搜索树的后序遍历序列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="nav-number">51.</span> <span class="nav-text">15. 二进制中1的个数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#65-%E4%B8%8D%E7%94%A8%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E5%81%9A%E5%8A%A0%E6%B3%95"><span class="nav-number">52.</span> <span class="nav-text">65.不用加减乘除做加法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#56-1-%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0"><span class="nav-number">53.</span> <span class="nav-text">56_1.数组中数字出现的次数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#56-2-%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0"><span class="nav-number">54.</span> <span class="nav-text">56_2.数组中数字出现的次数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#39-%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E4%B8%80%E8%88%AC%E7%9A%84%E6%95%B0%E5%AD%97"><span class="nav-number">55.</span> <span class="nav-text">39.数组中出现次数超过一般的数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#66-%E6%9E%84%E5%BB%BA%E4%B9%98%E7%A7%AF%E6%95%B0%E7%BB%84"><span class="nav-number">56.</span> <span class="nav-text">66.构建乘积数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-1-%E5%89%AA%E7%BB%B3%E5%AD%90"><span class="nav-number">57.</span> <span class="nav-text">14_1.剪绳子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#57-2-%E5%92%8C%E4%B8%BAs%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%AD%A3%E6%95%B0%E5%BA%8F%E5%88%97"><span class="nav-number">58.</span> <span class="nav-text">57_2.和为s的连续正数序列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#62-%E5%9C%86%E5%9C%88%E4%B8%AD%E6%9C%80%E5%90%8E%E5%89%A9%E4%B8%8B%E7%9A%84%E6%95%B0%E5%AD%97"><span class="nav-number">59.</span> <span class="nav-text">62.圆圈中最后剩下的数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#29-%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5"><span class="nav-number">60.</span> <span class="nav-text">29.顺时针打印矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#31-%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E3%80%81%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97"><span class="nav-number">61.</span> <span class="nav-text">31.栈的压入、弹出序列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20-%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">62.</span> <span class="nav-text">20.表示数值的字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#67-%E6%8A%8A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%88%90%E6%95%B4%E6%95%B0"><span class="nav-number">63.</span> <span class="nav-text">67.把字符串转换成整数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#59-1-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC"><span class="nav-number">64.</span> <span class="nav-text">59_1.滑动窗口的最大值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#59-2-%E9%98%9F%E5%88%97%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC"><span class="nav-number">65.</span> <span class="nav-text">59_2.队列的最大值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#37-%E5%BA%8F%E5%88%97%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">66.</span> <span class="nav-text">37.序列化二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#38-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97"><span class="nav-number">67.</span> <span class="nav-text">38.字符串的排列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D"><span class="nav-number">68.</span> <span class="nav-text">19.正则表达式匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#49-%E4%B8%91%E6%95%B0"><span class="nav-number">69.</span> <span class="nav-text">49.丑数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#60-n%E4%B8%AA%E9%AA%B0%E5%AD%90%E7%9A%84%E7%82%B9%E6%95%B0"><span class="nav-number">70.</span> <span class="nav-text">60.n个骰子的点数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#51-%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%80%86%E5%BA%8F%E5%AF%B9"><span class="nav-number">71.</span> <span class="nav-text">51.数组中的逆序对</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-2-%E5%89%AA%E7%BB%B3%E5%AD%90"><span class="nav-number">72.</span> <span class="nav-text">14_2.剪绳子</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -3236,6 +1618,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
