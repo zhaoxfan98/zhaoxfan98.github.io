@@ -86,19 +86,19 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="什么是Maven目前无论使用IDEA还是Eclipse等其他&#96;&#96;IDE&#96;，使用里面ANT工具。ANT工具帮助我们进行编译，打包运行等工作 Apache基于ANT进行了升级，研发出了全新的自动化构建工具Maven Maven是Apache的一款开源的项目管理工具 以后无论是普通javase项目还是javaee项目，都使用Maven创建 Maven使用项目对象模型（POM）的概">
 <meta property="og:locale">
-<meta property="og:image" content="http://example.com/.com//1.png">
-<meta property="og:image" content="http://example.com/.com//2.png">
-<meta property="og:image" content="http://example.com/.com//3.png">
-<meta property="og:image" content="http://example.com/.com//4.png">
-<meta property="og:image" content="http://example.com/.com//5.png">
-<meta property="og:image" content="http://example.com/.com//6.png">
-<meta property="og:image" content="http://example.com/.com//7.png">
+<meta property="og:image" content="http://example.com/Maven-note/1.png">
+<meta property="og:image" content="http://example.com/Maven-note/2.png">
+<meta property="og:image" content="http://example.com/Maven-note/3.png">
+<meta property="og:image" content="http://example.com/Maven-note/4.png">
+<meta property="og:image" content="http://example.com/Maven-note/5.png">
+<meta property="og:image" content="http://example.com/Maven-note/6.png">
+<meta property="og:image" content="http://example.com/Maven-note/7.png">
 <meta property="article:published_time" content="2021-12-25T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-01-01T04:08:43.790Z">
 <meta property="article:author" content="zhaoxfan">
 <meta property="article:tag" content="Maven">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/.com//1.png">
+<meta name="twitter:image" content="http://example.com/Maven-note/1.png">
 
 
 
@@ -415,7 +415,7 @@
 <h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><p>即A工程开发或运行过程中需要B工程提供支持，则代表A工程依赖B工程。在这种情况下，需要在A项目的<code>pom.xml</code>文件中增加配置定义依赖关系。</p>
 <p>通俗理解就是导jar包，B工程可以是自己的项目打包后的jar包，也可以是中央仓库的jar包</p>
 <h4 id="如何注入依赖"><a href="#如何注入依赖" class="headerlink" title="如何注入依赖"></a>如何注入依赖</h4><p>在<code>pom.xml</code>文件的根元素project下的dependencies标签中，配置依赖关系。每个依赖<code>deoendence</code>标签都应该包含以下元素：<code>groupId, artifactId, version</code></p>
-<p><img src="/.com//1.png" alt="image-20211224125907726"></p>
+<p><img src="/Maven-note/1.png" alt="image-20211224125907726"></p>
 <p>依赖省去了程序员手动添加jar包的操作，可以帮助我们解决jar包冲突问题</p>
 <h4 id="依赖的传递性"><a href="#依赖的传递性" class="headerlink" title="依赖的传递性"></a>依赖的传递性</h4><p>传递性依赖是<code>Maven2.0</code>的新特性。假设你的项目依赖于一个库，而这个库又依赖于其他库。你不必自己去找出所有这些依赖，你只需要加上你直接依赖的库，Maven会隐式的把这些库间接依赖的库也加入到你的项目中。这个特性是靠解析从远程仓库中获取的依赖库的项目文件实现的。一般的，这些项目的所有依赖都会加入到项目中，或者从父项目继承，或者通过传递性依赖。</p>
 <p>如果A依赖了B，那么C依赖A时会自动把A和B都导入进来。创建项目后，选择IDEA最右侧Maven面板<code>lifecycle</code>，双击install后就会把项目安装到本地仓库中，其他项目就可以通过坐标引用此项目。</p>
@@ -441,16 +441,16 @@
 <p>注意：在父项目中放在<dependencyManagement>中的内容时不被子项目继承，不可以直接使用</dependencyManagement></p>
 <p>放在<dependencyManagement>中的内容主要目的是进行版本管理。里面的内容在子项目中依赖时坐标只需要填写<group id>和<artifact id>即可。（注意：如果子项目不希望使用父项目的版本，可以明确配置version）。</artifact></group></dependencyManagement></p>
 <p>父工程是一个POM工程：</p>
-<p><img src="/.com//2.png" alt="image-20211224131148601"></p>
+<p><img src="/Maven-note/2.png" alt="image-20211224131148601"></p>
 <p>子工程：</p>
-<p><img src="/.com//3.png" alt="image-20211224131209082"></p>
+<p><img src="/Maven-note/3.png" alt="image-20211224131209082"></p>
 <p>本质上是POM文件的继承</p>
 <h3 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a>聚合</h3><p>当我们开发的工程拥有2个以上模块的时候，每个模块都是一个独立的功能集合。比如某大学系统中拥有搜索平台，学习平台，考试平台等。开发的时候每个平台都可以独立编译，测试，运行。这个时候我们就需要一个聚合工程。</p>
 <p>在创建聚合工程的过程中，总的工程必须是一个POM工程（Maven Project）（聚合项目必须是一个pom类型的项目，jar项目war项目是没有办法做聚合工程的），各子模块可以是任意类型模块（Maven Module）。</p>
 <p><strong>聚合包含了继承的特性</strong></p>
 <p>聚合时多个项目的本质还是一个项目。这些项目被一个大的父项目包含。且这时父项目类型为pom类型。同时在父项目的pom.xml中出现<modules>表示包含的所有子模块</modules></p>
-<p><img src="/.com//4.png" alt="image-20211224132955382"></p>
-<p><img src="/.com//5.png" alt="image-20211224133014888"></p>
+<p><img src="/Maven-note/4.png" alt="image-20211224132955382"></p>
+<p><img src="/Maven-note/5.png" alt="image-20211224133014888"></p>
 <h2 id="常见插件"><a href="#常见插件" class="headerlink" title="常见插件"></a>常见插件</h2><h3 id="编译器插件"><a href="#编译器插件" class="headerlink" title="编译器插件"></a>编译器插件</h3><p>通过编译器插件，我们可以配置使用的JDK或者说编译器的版本</p>
 <p>在<code>settings.xml</code>文件中配置全局编译器插件，找到profiles节点，在里面加入profile节点</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 定义的编译器插件ID，全局唯一，名字随便起 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>jdk-1.7<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 插件标记，activeByDefault ：true默认编译器，jdk提供编译器版本 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">activeByDefault</span>&gt;</span>true<span class="tag">&lt;/<span class="name">activeByDefault</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">jdk</span>&gt;</span>1.7<span class="tag">&lt;/<span class="name">jdk</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 配置信息source-源信息，target-字节码信息，compilerVersion-编译过程版本 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>1.7<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>1.7<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.compilerVersion</span>&gt;</span>1.7<span class="tag">&lt;/<span class="name">maven.compiler.compilerVersion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -464,7 +464,7 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>配置好以后，那么你设置的位置下的配置文件都会被打包了</p>
-<p><img src="/.com//6.png" alt="image-20211224133554189"></p>
+<p><img src="/Maven-note/6.png" alt="image-20211224133554189"></p>
 <h3 id="tomcat插件"><a href="#tomcat插件" class="headerlink" title="tomcat插件"></a>tomcat插件</h3><p>如果创建war项目，必然要部署在服务器上，方式有</p>
 <ol>
 <li>部署在远程服务器上</li>
@@ -472,7 +472,7 @@
 </ol>
 <p>现在学习一个新的方式，不再依赖外部的tomcat，maven提供了tomcat插件，我们可以配置来使用</p>
 <p><strong>创建web项目：war项目</strong></p>
-<p><img src="/.com//7.png" alt="image-20211224133744141"></p>
+<p><img src="/Maven-note/7.png" alt="image-20211224133744141"></p>
 <p>使用Tomcat插件发布部署并执行war工程的时候，需要使用启动命令，启动命令为：tomcat7:run。命令中的tomcat7是插件命名，由插件提供商决定。run为插件中的具体功能。</p>
 <p>（注意：之前用的编译器插件，资源拷贝插件，不是可运行的插件，maven直接帮我们运行了，但是tomcat属于可运行插件，它什么时候工作需要程序员来控制，怎么控制呢？我们必须通过命令来运行控制）</p>
 <p>具体pom.xml文件的配置如下：</p>

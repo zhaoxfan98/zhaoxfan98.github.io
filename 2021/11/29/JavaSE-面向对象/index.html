@@ -86,18 +86,18 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Java面向对象将问题分解成一个一个步骤，对每个步骤进行相应的抽象，形成对象，通过不同对象之间的调用，组合解决问题。 就是说，在进行面向对象进行编程的时候，要把属性、行为等封装成对象，然后基于这些对象及对象的能力进行业务逻辑的实现。 比如:想要造一辆车，上来要先把车的各种属性定义出来，然后抽象成一个Car类。 面向对象具有三大基本特征和五大基本原则">
 <meta property="og:locale">
-<meta property="og:image" content="http://example.com/.com//overloading-vs-overriding.png">
-<meta property="og:image" content="http://example.com/.com//16145019571199.jpg">
-<meta property="og:image" content="http://example.com/.com//15539284762449.jpg">
-<meta property="og:image" content="http://example.com/.com//15539289530245.jpg">
-<meta property="og:image" content="http://example.com/.com//15539291533175.jpg">
-<meta property="og:image" content="http://example.com/.com//15539303829914.jpg">
+<meta property="og:image" content="http://example.com/JavaSE/overloading-vs-overriding.png">
+<meta property="og:image" content="http://example.com/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/16145019571199.jpg">
+<meta property="og:image" content="http://example.com/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/15539284762449.jpg">
+<meta property="og:image" content="http://example.com/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/15539289530245.jpg">
+<meta property="og:image" content="http://example.com/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/15539291533175.jpg">
+<meta property="og:image" content="http://example.com/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/15539303829914.jpg">
 <meta property="article:published_time" content="2021-11-28T16:00:00.000Z">
 <meta property="article:modified_time" content="2021-12-02T08:39:30.006Z">
 <meta property="article:author" content="zhaoxfan">
 <meta property="article:tag" content="面向对象">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/.com//overloading-vs-overriding.png">
+<meta name="twitter:image" content="http://example.com/JavaSE/overloading-vs-overriding.png">
 
 
 
@@ -420,7 +420,7 @@
 <p><code>IOC</code>是<code>Ioc-Inversion of Control</code>的缩写，即控制反转，是一种设计思想，意味着将你设计好的对象交给容器控制，而不是传统的在你的对象内部直接控制。</p>
 <p>即，当我们使用<code>Spring</code>框架时，对象是<code>Spring</code>容器创建出来并由容器进行管理，我们只需要使用就行了。</p>
 </blockquote>
-<h3 id="方法重写与重载"><a href="#方法重写与重载" class="headerlink" title="方法重写与重载"></a>方法重写与重载</h3><p><img src="/.com//overloading-vs-overriding.png" alt="overloading-vs-overriding"></p>
+<h3 id="方法重写与重载"><a href="#方法重写与重载" class="headerlink" title="方法重写与重载"></a>方法重写与重载</h3><p><img src="/./JavaSE/overloading-vs-overriding.png" alt="overloading-vs-overriding"></p>
 <p><strong>重写</strong>:指的是在Java的子类与父类中有两个名称、参数列表都相同的方法的情况。由于他们具有相同的方法签名，所以子类中的新方法将覆盖父类中原有的方法。</p>
 <p><strong>重载</strong>：函数或者方法有同样的名称，但是参数列表不相同的情形，这样的同名不同参数的函数或者方法之间，互相称之为重载函数或者方法。</p>
 <p><em><strong>重载<code>VS</code>重写</strong></em></p>
@@ -466,7 +466,7 @@
 <p>所以，有些面向对象语言是支持多重继承的。</p>
 <p>但是，多年以来，多重继承一直都是一个敏感的话题，反对者指它增加了程序的复杂性与含糊性。</p>
 <h4 id="菱形继承问题"><a href="#菱形继承问题" class="headerlink" title="菱形继承问题"></a>菱形继承问题</h4><p>假设我们有类B和类C，它们都继承了相同的类A。另外我们还有类D，类D通过多重继承机制继承了类B和类C。</p>
-<p><img src="/.com//16145019571199.jpg" alt="img"></p>
+<p><img src="/./JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/16145019571199.jpg" alt="img"></p>
 <p>这时候，因为D同时继承了B和C，并且B和C又同时继承了A，那么，D中就会因为多重继承，继承到两份来自A中的属性和方法。</p>
 <p>这时候，在使用D的时候，如果想要调用一个定义在A中的方法时，就会出现歧义。</p>
 <p>因为这样的继承关系的形状类似于菱形，因此这个问题被形象地称为菱形继承问题。</p>
@@ -508,17 +508,17 @@
 <p>也就是说，用Java创建的可执行二进制程序，能够不加改变的运行于多个平台。</p>
 <h3 id="平台无关性的实现"><a href="#平台无关性的实现" class="headerlink" title="平台无关性的实现"></a>平台无关性的实现</h3><p>对于Java的平台无关性的支持，就像对安全性和网络移动性的支持一样，是分布在整个Java体系结构中的。其中扮演者重要的角色的有Java语言规范、Class文件、Java虚拟机（JVM）等。</p>
 <h3 id="编译原理基础"><a href="#编译原理基础" class="headerlink" title="编译原理基础"></a>编译原理基础</h3><p>在Java平台中，想要把Java文件，编译成二进制文件，需要经过两步编译，前端编译和后端编译：</p>
-<p><img src="/.com//15539284762449.jpg" alt="img"></p>
+<p><img src="/./JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/15539284762449.jpg" alt="img"></p>
 <p>前端编译主要指与源语言有关但与目标机无关的部分。Java中，我们所熟知的<code>javac</code>的编译就是前端编译。除了这种以外，我们使用的很多IDE，如eclipse，idea等，都内置了前端编译器。主要功能就是把<code>.java</code>代码转换成<code>.class</code>代码。</p>
 <p>后端编译主要是将中间代码再翻译成机器语言。Java中，这一步骤就是Java虚拟机来执行的。</p>
-<p><img src="/.com//15539289530245.jpg" alt="img"></p>
+<p><img src="/./JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/15539289530245.jpg" alt="img"></p>
 <p>所以，我们说的，Java的平台无关性实现主要作用于以上阶段。如下图所示：</p>
-<p><img src="/.com//15539291533175.jpg" alt="img"></p>
+<p><img src="/./JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/15539291533175.jpg" alt="img"></p>
 <h4 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h4><p>所谓平台无关性，就是说要能够做到可以在多个平台上都能无缝对接。但是，对于不同的平台，硬件和操作系统肯定都是不一样的。</p>
 <p>对于不同的硬件和操作系统，最主要的区别就是指令不同。比如同样执行a+b，A操作系统对应的二进制指令可能是10001000，而B操作系统对应的指令可能是11101110。那么，想要做到跨平台，最重要的就是可以根据对应的硬件和操作系统生成对应的二进制指令。</p>
 <p>而这一工作，主要由我们的Java虚拟机完成。虽然Java语言是平台无关的，但是JVM却是平台有关的，不同的操作系统上面要安装对应的JVM。</p>
 <p>有了Java虚拟机，想要执行a+b操作，A操作系统上面的虚拟机就会把指令翻译成10001000，B操作系统上面的虚拟机就会把指令翻译成11101110。</p>
-<p><img src="/.com//15539303829914.jpg" alt="img"></p>
+<p><img src="/./JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/15539303829914.jpg" alt="img"></p>
 <p>所以，Java之所以可以做到跨平台，是因为Java虚拟机充当了桥梁。他扮演了运行时Java程序与其下的硬件和操作系统之间的缓冲角色。</p>
 <h4 id="字节码"><a href="#字节码" class="headerlink" title="字节码"></a>字节码</h4><p>各种不同的平台的虚拟机都使用统一的程序存储格式——字节码（<code>ByteCode</code>）是构成平台无关性的另一个基石。Java虚拟机只与由字节码组成的Class文件进行交互。</p>
 <p>我们说Java语言可以Write Once ,Run Anywhere。这里的Write其实指的就是生成Class文件的过程。</p>
